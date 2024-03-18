@@ -1,19 +1,30 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image, TextInput } from "react-native";
 import {Styles as S} from './styled';
+import Button from '../../../components/Buttons/ColorBlueButton'
+import InputText from '../../../components/Inputs/Input'
 
 const Login = ({navigation}) => {
 
   return (
-    <View style={S.container}>      
-      <Text style={S.HomeText}>로그인 화면</Text>
-      <TouchableOpacity
-          onPress={() => navigation.navigate("Signup", { screen: 'Signup' })}
-          style={S.NextBottom}
+
+    <View style={S.container}>
+      <View style={S.logoContainer}>
+        <Image
+          style={S.img}
+          source={require("../../../assets/images/Logo.png")}
+          resizeMode="contain"
         >
-          <Text style={S.BottomText}>회원가입 화면으로</Text>
-        </TouchableOpacity>
+        </Image>
+        <Text style={S.text}>KH TRAINER</Text>
+      </View>
+      <View style={S.inputContainer}>
+        <InputText innerText="아이디"></InputText>
+        <InputText innerText="비밀번호"></InputText>
+      </View>
+      <Button innerText="로그인"></Button>
     </View>
+
   )
 }
 
