@@ -11,6 +11,12 @@ export const Styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  backContainer: {
+    width: constants.width,
+    height: constants.height/2,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   img: {
     width: constants.width/5,
     height: constants.height/10
@@ -23,14 +29,33 @@ export const Styles = StyleSheet.create({
   logoContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: constants.width,
   },
   inputContainer: {
-    flex: 1,
+    flex: 2,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: constants.width,
   },
-  button: {
-    width: constants.width
+  buttonContainer: {
+    width: constants.width,
+  },
+  textContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: constants.height/70
+  },
+  textLeft: {
+    color: color.Black,
+    fontSize: 12,
+    fontWeight: 'regular',
+    marginRight: constants.width/60
+  },
+  textRight: {
+    color: color.Blue[8],
+    fontSize: 12,
+    fontWeight: 'medium',
   }
 })
