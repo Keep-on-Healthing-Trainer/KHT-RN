@@ -1,11 +1,12 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { color } from "../../../styles/theme"
+import constants from '../../../styles/constants'
 
-const ColorBlueButton = ({innerText, navigation}) => {
+const ColorBlueButton = ({innerText, navigation, onPress}) => {
 
   return (
-    <TouchableOpacity style={Styles.Bottom}>
+    <TouchableOpacity style={Styles.Bottom} onPress={onPress}>
         <Text style={Styles.BottomText}>{innerText}</Text>
     </TouchableOpacity>
   )
@@ -15,10 +16,13 @@ const Styles = StyleSheet.create({
     Bottom: {
       backgroundColor: color.Blue[8],
       marginTop: "5%",
-      width: "70%",
-      padding: 10,
+      width: constants.width/10*8,
+      height: constants.height/20,
       alignSelf: "center",
       borderRadius: 10,
+      padding: 10,
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     BottomText: {
       fontSize: 16,
