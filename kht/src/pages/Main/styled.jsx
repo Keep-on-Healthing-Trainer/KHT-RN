@@ -6,6 +6,7 @@ export const Styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       width: constants.width,
-      height: constants.height
+      height: constants.height,
+      justifyContent: 'space-between'
     },
 })
