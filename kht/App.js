@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Login from './src/pages/User/Login';
 import Signup from './src/pages/User/Signup';
-import Rank from './src/pages/Rank';
-import Info from './src/pages/User/Info';
+import Ranking from './src/pages/Ranking';
+import Traning from './src/pages/Traning';
 import Loading from './src/pages/Loading';
 import Main from './src/pages/Main';
 
@@ -35,8 +35,8 @@ export default class extends React.Component{
           <Stack.Navigator initialRouteName='Login'>
             <Stack.Screen options = {{ headerShown: false }} name="Login" component={Login} />
             <Stack.Screen options = {{ headerShown: false }} name="Signup" component={Signup} />
-            <Stack.Screen options = {{ headerShown: false }} name="Rank" component={Rank} />
-            <Stack.Screen options = {{ headerShown: false }} name="Info" component={Info} />
+            <Stack.Screen options = {{ headerShown: false }} name="Ranking" component={Ranking} />
+            <Stack.Screen options = {{ headerShown: false }} name="Traning" component={Traning} />
             <Stack.Screen options = {{ headerShown: false }} name="Main" component={Main} />
           </Stack.Navigator>
         </NavigationContainer>
