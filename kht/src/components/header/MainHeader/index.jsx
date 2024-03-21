@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { LinearGradient } from 'expo-linear-gradient';
 import { color } from '../../../styles/theme'
 import constants from '../../../styles/constants'
+import Title from "../../../assets/icons/Title";
 
 
 const MainHeader = ({innerText, navigation, onPress}) => {
@@ -17,10 +17,8 @@ const MainHeader = ({innerText, navigation, onPress}) => {
               resizeMode="contain"
           >
           </Image>
-          <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']}>
-            <Text style={Styles.text}>KHT</Text>
-          </LinearGradient>
         </View>
+        <Title></Title>
       </View>
     </>
   )
@@ -28,23 +26,21 @@ const MainHeader = ({innerText, navigation, onPress}) => {
 
 const Styles = StyleSheet.create({
     container: {
-        backgroundColor: color.Black,
         width: constants.width,
-        height: constants.height/10,
+        height: constants.height/7,
         alignItems: 'center',
         flexDirection: 'row'
     },
     img: {
-      width: constants.width/8,
+      width: constants.width/10,
       height: constants.height/10
     },
     imgContainer: {
       justifyContent: 'center',
-      alignItems: 'center',
-      width: constants.width/2.5,
+      alignItems: 'flex-end',
+      width: constants.width/6.5,
       height: constants.height/10,
-      backgroundColor: color.Blue[1],
-      flexDirection: 'row',
+      marginRight: constants.width/40
     },
     text: {
       fontSize: 22,
