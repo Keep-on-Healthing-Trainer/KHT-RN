@@ -9,4 +9,7 @@ export const Styles = StyleSheet.create({
       height: constants.height,
       justifyContent: 'space-between'
     },
+    text: {
+      fontSize: 50
+    }
 })
