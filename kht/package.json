@@ -40,7 +40,8 @@
     "react-native-tab-view": "^3.5.2",
     "react-native-text-gradient": "^0.1.7",
     "react-redux": "^9.1.0",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "expo-barcode-scanner": "~12.9.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
