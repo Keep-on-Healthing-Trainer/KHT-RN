@@ -25,18 +25,19 @@ import TraningNoColor from './src/assets/icons/TraningNoColor';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function AuthTab() {
+function MainScreen() {
   const navigation = useNavigation();
 
   return (
       <Tab.Navigator
         initialRouteName="Main"
+        component={Main}
         screenOptions={({ route, navigation }) => ({
           tabBarShowLabel: false,
           tabBarStyle: {
             height: constants.height/8,
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20
+            // borderTopLeftRadius: 20,
+            // borderTopRightRadius: 20
           }
         })}
       >
@@ -145,7 +146,7 @@ export default class extends React.Component{
           <Stack.Navigator initialRouteName="Login">
             <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
             <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
-            <Stack.Screen name="AuthTab" component={AuthTab} options={{ headerShown: false }}/>
+            <Stack.Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }}/>
           </Stack.Navigator>
         </NavigationContainer>
         
