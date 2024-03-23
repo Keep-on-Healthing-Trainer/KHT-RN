@@ -25,7 +25,7 @@ const Login = ({navigation}) => {
         </View>
         <View style={S.buttonContainer}>
           <Button innerText="로그인"
-            onPress={() => navigation.navigate("AuthTab", { screen: 'AuthTab' })}
+            onPress={() => navigation.navigate("MainScreen", { screen: 'MainScreen' })}
           ></Button>
           <View style={S.textContainer}>
             <Text style={S.textLeft}>계정이 없으신가요?</Text>

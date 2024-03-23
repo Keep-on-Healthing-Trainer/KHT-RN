@@ -27,9 +27,10 @@ const MainHeader = ({innerText, navigation, onPress}) => {
 const Styles = StyleSheet.create({
     container: {
         width: constants.width,
-        height: constants.height/7,
+        height: constants.height/10,
         alignItems: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        paddingTop: constants.height/30
     },
     img: {
       width: constants.width/10,
@@ -40,11 +41,11 @@ const Styles = StyleSheet.create({
       alignItems: 'flex-end',
       width: constants.width/6.5,
       height: constants.height/10,
-      marginRight: constants.width/40
+      marginRight: constants.width/40,
     },
     text: {
       fontSize: 22,
-      fontWeight: 'black'
+      fontWeight: 'black',
     }
 })
 
