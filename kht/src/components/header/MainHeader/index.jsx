@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import { color } from '../../../styles/theme'
 import constants from '../../../styles/constants'
 import Title from "../../../assets/icons/Title";
 
@@ -45,7 +44,6 @@ const Styles = StyleSheet.create({
     },
     text: {
       fontSize: 22,
-      fontWeight: 'black',
     }
 })
 

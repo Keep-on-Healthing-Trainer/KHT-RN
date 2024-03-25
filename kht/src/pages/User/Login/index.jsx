@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import {Styles as S} from './styled';
 import Button from '../../../components/Buttons/ColorBlueButton';
 import InputText from '../../../components/Inputs/Input';
 
 const Login = ({navigation}) => {
+
+  const [passwordType, setPasswordType] = useState(true);
 
   return (
 
@@ -21,7 +23,9 @@ const Login = ({navigation}) => {
         </View>
         <View style={S.inputContainer}>
           <InputText innerText="아이디" name={false}></InputText>
-          <InputText innerText="비밀번호" name={true}></InputText>
+          <View style={S.passwordContainer}>
+            <InputText innerText="비밀번호" name={passwordType}></InputText>
+          </View>
         </View>
         <View style={S.buttonContainer}>
           <Button innerText="로그인"

@@ -16,32 +16,28 @@ export const Styles = StyleSheet.create({
     },
     camera: {
       flex: 1,
-      // borderRadius: 20,
     },
     cameraContainer: {
-      width: constants.width/10*8,
-      height: constants.height/3,
+      width: constants.width/10*7.8,
+      height: constants.height/3.2,
       borderColor: color.Blue[8],
-      // borderRadius: 20,
-      borderWidth: 5,
+      borderRadius: 30,
+      borderWidth: 5
     },
     mainContainer: {
       flex: 1,
-      backgroundColor: color.Gray[3],
       alignItems: 'center',
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
-      justifyContent: 'space-around',
-      paddingBottom: constants.height/15
-    },
-    textContainer: {
-      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      paddingTop: constants.height/30,
+      paddingBottom: constants.height/30
     },
     traningTypeText: {
       fontSize: 22,
-      fontWeight: 'Black',
       textAlign: 'center',
-      color: color.White
+      color: color.White,
+      marginBottom: constants.height/80
     },
     buttonText: {
       fontSize: 18,
@@ -55,5 +51,9 @@ export const Styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 10
+    },
+    noCheckText: {
+      fontSize: 20,
+      color: color.Black
     }
 })

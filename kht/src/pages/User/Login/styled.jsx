@@ -57,5 +57,8 @@ export const Styles = StyleSheet.create({
     color: color.Blue[8],
     fontSize: 12,
     fontWeight: 'medium',
+  },
+  passwordContainer: {
+    flexDirection: 'row',
   }
 })
