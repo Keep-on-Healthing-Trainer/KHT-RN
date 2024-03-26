@@ -7,7 +7,6 @@ import Title from "../../../assets/icons/Title";
 const MainHeader = ({innerText, navigation, onPress}) => {
 
   return (
-    <>
       <View style={Styles.container}>
         <View style={Styles.imgContainer}>
           <Image
@@ -19,7 +18,6 @@ const MainHeader = ({innerText, navigation, onPress}) => {
         </View>
         <Title></Title>
       </View>
-    </>
   )
 }
 

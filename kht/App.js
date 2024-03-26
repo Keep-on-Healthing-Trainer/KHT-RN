@@ -36,8 +36,6 @@ function MainScreen() {
           tabBarShowLabel: false,
           tabBarStyle: {
             height: constants.height/8,
-            // borderTopLeftRadius: 20,
-            // borderTopRightRadius: 20
           }
         })}
       >

@@ -27,8 +27,7 @@ const Traning = ({navigation}) => {
   return (
     <View style={S.container}>
       <MainHeader></MainHeader>
-      {hasPermission ? (
-        <Camera
+      <Camera
         style={S.camera}
         type={Camera.Constants.Type.back}
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
@@ -40,9 +39,6 @@ const Traning = ({navigation}) => {
           <View style={S.button}><Text style={S.buttonText}>SCAN</Text></View>
         </View>
       </Camera>
-      ) : (
-          <Text style={S.noCheckText}>카메라 허용은 필수입니다.</Text>
-      )}
     </View>
   )
 }

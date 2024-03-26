@@ -1,16 +1,18 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
-
-import {Styles as S} from './styled';
-import MainHeader from "../../components/header/MainHeader";
+import React, { useState } from "react";
+import MainTab from './Main'
+import EditTab from "./Edit";
 
 const Main = ({navigation}) => {
+  const [editState, setEditState] = useState(false);
 
   return (
-    <View style={S.container}>
-      <MainHeader></MainHeader>
-      <Text style={S.text}>Main 페이지</Text>
-    </View>
+    <>
+        {editState ? (
+            <EditTab onPress={() => setEditState(false)}></EditTab>
+        ) : (
+            <MainTab onPress={() => setEditState(true)}></MainTab>
+        )}
+    </>
   )
 }
 

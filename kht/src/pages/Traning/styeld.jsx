@@ -5,7 +5,7 @@ import { color } from "../../styles/theme";
 export const Styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: color.White,
       width: constants.width,
       height: constants.height,
     },
