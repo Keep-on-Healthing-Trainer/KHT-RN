@@ -5,11 +5,12 @@ import { color } from '../../styles/theme'
 export const Styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: color.Gray[0],
       width: constants.width,
       height: constants.height,
+      justifyContent: 'space-between'
     },
-    rankContainer: {
+    topRankContainer: {
       width: constants.width,
       height: constants.height/5,
       flexDirection: 'row',
@@ -22,14 +23,14 @@ export const Styles = StyleSheet.create({
       justifyContent: 'center'
     },
     oneProfile: {
-      width: 120,
-      height: 120,
+      width: 100,
+      height: 100,
       backgroundColor: color.Black,
       borderRadius: 60
     },
     anotherProfile: {
-      width: 100,
-      height: 100,
+      width: 70,
+      height: 70,
       backgroundColor: color.Black,
       borderRadius: 50
     },
@@ -51,5 +52,60 @@ export const Styles = StyleSheet.create({
       color: color.Black,
       fontSize: 18,
       fontWeight: 'bold'
-    }
+    },
+    rankingContainer: {
+      width: constants.width,
+      height: constants.height/2.3,
+      alignItems: 'center',
+    },
+    rankingTableContainer: {
+      width: constants.width/1.1,
+      height: constants.height/20,
+      backgroundColor: color.White,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingLeft: constants.width/15,
+      paddingRight: constants.width/15,
+      marginBottom: 5
+    },
+    rankingTableProfile: {
+      width: 40,
+      height: 40,
+      borderRadius: 50,
+      backgroundColor: color.Black
+    },
+    rankingTableText: {
+      fontSize: 12,
+      color: color.Black
+    },
+    myRankingContainer: {
+      width: constants.width,
+      height: constants.height/10,
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      backgroundColor: color.White,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
+      elevation: 5,
+    },
+    myRankingProfile: {
+      width: 40,
+      height: 40,
+      borderRadius: 50,
+      backgroundColor: color.Black
+    },
+    myRankingText: {
+      fontSize: 15,
+      color: color.Black,
+      fontWeight: 'bold'
+    },
 })
