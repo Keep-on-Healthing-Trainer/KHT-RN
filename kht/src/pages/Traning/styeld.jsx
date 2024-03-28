@@ -39,19 +39,6 @@ export const Styles = StyleSheet.create({
       color: color.White,
       marginBottom: constants.height/80
     },
-    buttonText: {
-      fontSize: 18,
-      textAlign: 'center',
-      color: color.White
-    },
-    button: {
-      width: constants.width/10*8,
-      height: constants.height/14,
-      backgroundColor: color.Blue[8],
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: 10
-    },
     noCheckText: {
       fontSize: 20,
       color: color.Black
