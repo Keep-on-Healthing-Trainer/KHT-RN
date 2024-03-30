@@ -5,7 +5,7 @@ import BackPage from "../../../../components/header/BackHeader";
 import InputText from "../../../../components/Inputs/Input";
 import Button from '../../../../components/Buttons/ColorBlueButton';
 
-const SignupTab = ({navigation, onPress}) => {
+const SignupTab = ({navigation, onPress, onSecondPress}) => {
 
   return (
     <>
@@ -34,7 +34,7 @@ const SignupTab = ({navigation, onPress}) => {
           </View>
         </View>
         <View style={S.buttonContainer}>
-            <Button innerText="회원가입" onPress={onPress}></Button>
+            <Button innerText="회원가입" onPress={onSecondPress}></Button>
         </View>
       </View>
     </>
