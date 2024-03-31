@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { color } from '../../../styles/theme'
 import constants from '../../../styles/constants'
@@ -9,10 +9,12 @@ const BackPage = ({innerText, navigation, onPress}) => {
   return (
     <>
       <View style={Styles.container}>
-        <TouchableOpacity style={Styles.buttonContainer} onPress={onPress}>
+        <TouchableOpacity onPress={onPress}>
           <Arrow style={Styles.img}></Arrow>
         </TouchableOpacity>
-        <Text style={Styles.text}>{innerText}</Text>
+        <View style={Styles.textContainer}>
+          <Text style={Styles.text}>{innerText}</Text>
+        </View>
       </View>
     </>
   )
@@ -23,22 +25,25 @@ const Styles = StyleSheet.create({
         backgroundColor: color.White,
         width: constants.width,
         height: constants.height/12,
+        flexDirection: 'row',
         alignItems: 'flex-end',
-        flexDirection: 'row'
+        justifyContent: 'space-around',
+        paddingLeft: 20,
+        paddingRight: 40,
     },
     img: {
         width: constants.width/10,
         height: constants.height/10,
     },
-    buttonContainer: {
-      paddingLeft: constants.width/20,
-      paddingRight: constants.width/55
+    textContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     text: {
       color: color.Black,
       fontSize: 18,
       fontWeight: 'medium',
-      marginLeft: constants.width/3.3
     }
 })
 
