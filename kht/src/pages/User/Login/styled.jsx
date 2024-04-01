@@ -60,5 +60,10 @@ export const Styles = StyleSheet.create({
   },
   passwordContainer: {
     flexDirection: 'row',
+  },
+  passwordEyes: {
+    position: 'absolute',
+    left: constants.width/1.4,
+    top: constants.height/70
   }
 })

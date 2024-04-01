@@ -28,5 +28,10 @@ export const Styles = StyleSheet.create({
     },
     buttonContainer: {
       marginTop: constants.height/10
+    },
+    passwordEyes: {
+      position: 'absolute',
+      left: constants.width/1.4,
+      top: constants.height/22
     }
 })
