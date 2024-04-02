@@ -11,7 +11,7 @@ export const Styles = StyleSheet.create({
     },
     topContainer: {
       width: constants.width,
-      height: constants.height/3,
+      height: constants.height/4,
       alignItems: 'center',
       position: 'relative',
       marginTop: constants.height/20
@@ -29,16 +29,18 @@ export const Styles = StyleSheet.create({
     },
     profileContainer: {
       width: constants.width,
-      height: constants.height/4,
+      height: constants.height/5.5,
       backgroundColor: color.White,
       borderRadius: 20,
       alignItems: 'flex-end',
     },
     dataContainer: {
       width: constants.width,
-      height: constants.height/3,
+      height: constants.height/2.5,
       backgroundColor: color.White,
       borderRadius: 20,
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     editButton: {
       width: constants.width/8,
@@ -51,5 +53,30 @@ export const Styles = StyleSheet.create({
     },
     editButtonText: {
       color: color.White
+    },
+    textCount: {
+      color: color.Black,
+      fontSize: 20,
+      fontWeight: 'bold'
+    },
+    textComment: {
+      color: color.Black,
+      fontSize: 12,
+      marginBottom: 50
+    },
+    nameContanier: {
+      width: constants.width,
+      alignItems: 'center'
+    },
+    IdName: {
+      fontSize: 20,
+      fontWeight: '600',
+      color: color.Gray[5],
+      marginBottom: 10
+    },
+    IdComment: {
+      fontSize: 14,
+      fontWeight: '500',
+      color: color.Gray[4]
     }
 })
