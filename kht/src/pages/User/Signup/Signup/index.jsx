@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+
 import { Styles as S } from './styled';
 import BackPage from "../../../../components/header/BackHeader";
 import InputText from "../../../../components/Inputs/Input";

@@ -25,13 +25,11 @@ export const Styles = StyleSheet.create({
     oneProfile: {
       width: 100,
       height: 100,
-      backgroundColor: color.Black,
       borderRadius: 60
     },
     anotherProfile: {
       width: 70,
       height: 70,
-      backgroundColor: color.Black,
       borderRadius: 50
     },
     oneRankText: {
@@ -73,7 +71,6 @@ export const Styles = StyleSheet.create({
       width: 40,
       height: 40,
       borderRadius: 50,
-      backgroundColor: color.Black
     },
     rankingTableText: {
       fontSize: 12,
@@ -88,7 +85,7 @@ export const Styles = StyleSheet.create({
       backgroundColor: color.White,
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
-      shadowColor: "#000",
+      shadowColor: color.Black,
       shadowOffset: {
         width: 0,
         height: 2,
@@ -101,7 +98,6 @@ export const Styles = StyleSheet.create({
       width: 40,
       height: 40,
       borderRadius: 50,
-      backgroundColor: color.Black
     },
     myRankingText: {
       fontSize: 15,
