@@ -11,8 +11,8 @@ const EditName = ({navigation, onPress, innerText}) => {
     <View style={S.container}>
         <BackPage onPress={onPress} innerText={innerText}></BackPage>
         <View style={S.titleContainer}>
-          <Text style={S.nameTitle}>사용자 이름</Text>
-          <InputCheck innerText="sdfklsd"></InputCheck>
+          <Text style={S.nameTitle}>{innerText}</Text>
+          <InputCheck innerText="이나경"></InputCheck>
         </View>
     </View>
   )

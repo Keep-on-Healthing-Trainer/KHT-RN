@@ -1,14 +1,16 @@
-import React from "react";
+import React, { createRef, useState } from "react";
 import { TextInput, StyleSheet, View } from "react-native";
+
 import { color } from "../../../styles/theme";
 import constants from '../../../styles/constants';
 import Delete from '../../../assets/icons/Delete';
 
 const Input = ({innerText, navigation}) => {
-
   return (
     <View> 
-        <TextInput style={Styles.Bottom}>{innerText}</TextInput>
+      <TextInput
+        style={Styles.Bottom}
+        >{innerText}</TextInput>
         <Delete style={Styles.topItem}></Delete>
     </View>
   )
