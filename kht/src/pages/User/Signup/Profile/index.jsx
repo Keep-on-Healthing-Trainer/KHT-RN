@@ -5,7 +5,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { Styles as S } from './styled';
 import SkipHeader from "../../../../components/header/SkipHeader";
 import ImageSelect from "../../../../assets/icons/ImageSelect";
-import Button from "../../../../components/Buttons/ColorBlueButton";
+import Button from "../../../../components/Buttons/BorderBlueButton";
 
 const ProfileTab = ({navigation, onPress}) => {
   const [ imageUrl, setImageUrl ] = useState('');

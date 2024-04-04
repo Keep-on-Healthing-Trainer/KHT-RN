@@ -27,6 +27,6 @@ export const Styles = StyleSheet.create({
       color: color.Blue[7]
     },
     button: {
-      marginTop: constants.height/4
+      marginTop: constants.height/5
     }
 })

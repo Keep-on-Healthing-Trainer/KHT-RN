@@ -4,8 +4,7 @@ import * as ImagePicker from 'expo-image-picker';
 
 import { Styles as S } from './styled';
 import BackHeader from "../../../../components/header/BackHeader";
-import ImageSelect from "../../../../assets/icons/ImageSelect";
-import Button from '../../../../components/Buttons/ColorBlueButton';
+import Button from '../../../../components/Buttons/BorderBlueButton';
 
 const ProfileTab = ({navigation, onPress}) => {
   const [ imageUrl, setImageUrl ] = useState('');
@@ -41,12 +40,11 @@ const ProfileTab = ({navigation, onPress}) => {
         {imageUrl ? (
           <Image source={{uri: imageUrl}} style={S.clickImage}></Image>
         ) : (
-          <Pressable style={S.clickImage} onPress={uploadImage}>
-            <ImageSelect></ImageSelect>
-          </Pressable>
+          <Image source={require('../../../../assets/images/ProfileImage.png')} style={S.clickImage}></Image>
         )}
         <Text style={S.text}>프로필 이미지를 설정하지 않을{"\n"}경우에는 기본 프로필로 설정됩니다.</Text>
         <View style={S.button}>
+          <Button innerText="수정하기" onPress={uploadImage}></Button>
           <Button innerText="저장하기" onPress={onPress}></Button>
         </View>
       </View>
