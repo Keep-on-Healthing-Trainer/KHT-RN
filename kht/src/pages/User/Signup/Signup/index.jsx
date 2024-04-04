@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 
 import { Styles as S } from './styled';
 import BackPage from "../../../../components/header/BackHeader";
-import InputText from "../../../../components/Inputs/Input";
+import InputText from "../../../../components/Inputs/InputText";
 import Button from '../../../../components/Buttons/ColorBlueButton';
 import Eyes from '../../../../assets/icons/Eyes';
 import CloseEyes from "../../../../assets/icons/CloseEyes";

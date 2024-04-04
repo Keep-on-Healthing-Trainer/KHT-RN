@@ -15,19 +15,6 @@ const Traning = ({navigation}) => {
         setHasPermission(true);
       } else {
         setHasPermission(false);
-        Alert.alert(
-          "햑생인가요?",
-          "ㄹㅇ",
-          [
-            {
-              text: "아니요",
-              onPress: () => console.log("아니라는데"),
-              style: "cancel"
-            },
-            { text: "네", onPress: () => console.log("그렇다는데") },
-          ],
-          { cancelable: false }
-        );
       }
     })();
   }, []);

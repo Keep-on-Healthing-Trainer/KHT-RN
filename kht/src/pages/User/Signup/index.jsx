@@ -8,7 +8,7 @@ const Signup = ({navigation}) => {
   return (
     <>
       {signupState ? (
-          <ProfileTab onPress={() => navigation.navigate("Login", { screen: 'Login' })}></ProfileTab>
+          <ProfileTab onPress={() => navigation.navigate("MainScreen", { screen: 'MainScreen' })}></ProfileTab>
       ) : (
           <SignupTab onPress={() => {
             navigation.navigate("Login", { screen: 'Login' });

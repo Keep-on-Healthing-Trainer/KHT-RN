@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import {Styles as S} from './styled';
 import Button from '../../../components/Buttons/ColorBlueButton';
-import InputText from '../../../components/Inputs/Input';
+import InputText from '../../../components/Inputs/InputText';
 import Eyes from '../../../assets/icons/Eyes';
 import CloseEyes from '../../../assets/icons/CloseEyes';
 
