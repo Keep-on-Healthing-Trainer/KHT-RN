@@ -3,9 +3,9 @@ import { View, Text, TouchableOpacity, Image, Pressable } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 
 import { Styles as S } from './styled';
-import SkipHeader from "../../../../components/header/SkipHeader";
+import BackHeader from "../../../../components/header/BackHeader";
 import ImageSelect from "../../../../assets/icons/ImageSelect";
-import Button from "../../../../components/Buttons/ColorBlueButton";
+import Button from '../../../../components/Buttons/ColorBlueButton';
 
 const ProfileTab = ({navigation, onPress}) => {
   const [ imageUrl, setImageUrl ] = useState('');
@@ -37,7 +37,7 @@ const ProfileTab = ({navigation, onPress}) => {
   return (
     <>
       <View style={S.container}>
-        <SkipHeader innerText="프로필 사진" onPress={onPress}></SkipHeader>
+        <BackHeader innerText="프로필 사진" onPress={onPress}></BackHeader>
         {imageUrl ? (
           <Image source={{uri: imageUrl}} style={S.clickImage}></Image>
         ) : (
