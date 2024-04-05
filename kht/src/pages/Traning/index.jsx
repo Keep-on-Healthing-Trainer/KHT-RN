@@ -1,23 +1,33 @@
 import React, { useRef, useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, Image, Alert } from "react-native";
+import { useIsFocused } from '@react-navigation/native';
 import { Camera } from 'expo-camera';
+
 import { Styles as S } from './styeld';
 import MainHeader from "../../components/header/MainHeader";
 
 const Traning = ({navigation}) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const isFocused = useIsFocused();
 
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
-      if (status === 'granted') {
-        setHasPermission(true);
-      } else {
-        setHasPermission(false);
-      }
+      setHasPermission(status === 'granted');
     })();
   }, []);
+  
+  if (!isFocused) {
+    return null;
+  }
+
+  if (hasPermission === null) {
+    return <View />;
+  }
+  if (!hasPermission) {
+    return <Text>No access to camera</Text>;
+  }
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
