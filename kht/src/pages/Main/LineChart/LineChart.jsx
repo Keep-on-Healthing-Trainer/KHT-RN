@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
-import Svg, { Line } from 'react-native-svg';
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import Svg, { Line, Circle, Text } from 'react-native-svg';
 
 import useLine from './useLine'
 import { color } from '../../../styles/theme';
@@ -16,7 +16,14 @@ const LineChart = ({ points, data }) => {
             <Line x1={x1} x2={x2} y1={y1} y2={y2} key={index} stroke={color.Blue[6]} strokeWidth="1" />
           ))}
           {points.map(({ x, y }, index) => {
-            <View cx={x} cy={y} r="1" key={index} style={Styles.circle}></View>
+            return(
+              <>
+                <Circle cx={x} cy={y} r="1" style={Styles.circle} key={index}></Circle>
+                <Text x={x} y={100} style={Styles.text}>
+                  {data[index]}
+                </Text>
+              </>
+            );
           })}
         </Svg>
       </View>
@@ -26,12 +33,13 @@ const LineChart = ({ points, data }) => {
 const Styles = StyleSheet.create({
     container: {
         width: constants.width,
-        height: constants.height/4.5
+        height: constants.height/4
     },
     circle: {
-        width: 100,
-        height: 100,
-        backgroundColor: color.Blue[8]
+      fill: color.Blue[6]
+    },
+    text: {
+      fontSize: 4
     }
 })
 
