@@ -4,7 +4,7 @@ import LineChart from "./LineChart";
 import useXY from './useXY';
 
 const Chart = () => {
-  const data = [15, 25, 37, 61, 51, 70, 83, 100];
+  const data = [1534, 2523, 3457, 6615, 5341, 7650, 8753, 1230, 2023, 5045, 3023, 5000];
   const [arr] = useXY(data);
 
   return (

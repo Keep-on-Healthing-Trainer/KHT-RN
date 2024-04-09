@@ -11,7 +11,7 @@ const LineChart = ({ points, data }) => {
 
     return (
       <View style={Styles.container}>
-        <Svg viewBox="0 0 100 100">
+        <Svg viewBox="0 0 150 100" style={Styles.viewbox}>
           {lines.map(({ x1, x2, y1, y2 }, index) => (
             <Line x1={x1} x2={x2} y1={y1} y2={y2} key={index} stroke={color.Blue[6]} strokeWidth="1" />
           ))}
