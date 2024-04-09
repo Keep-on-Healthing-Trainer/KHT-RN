@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeTab from "../screens/Home/Home";
@@ -9,14 +10,15 @@ import ProfileTab from '../screens/Home/Profile';
 
 const Stack = createStackNavigator();
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = () => {
+    const navigation = useNavigation();
   
     return (
-        <Stack.Navigator initialRouteName="HomeTab">
+        <Stack.Navigator initialRouteName='HomeTab'>
             <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} />
             <Stack.Screen name="SelectTab" component={SelectTab} options={{ headerShown: false }} />
             <Stack.Screen name="EditTab" component={EditTab} options={{ headerShown: false }} />
-            <Stack.Screen name="ProfileTab" component={ProfileTab} options={{ headerShown: false }} />
+            <Stack.Screen name="ProfileTab" component={ProfileTab} options={{ headerShown: false }}/>
         </Stack.Navigator>
     );
 }

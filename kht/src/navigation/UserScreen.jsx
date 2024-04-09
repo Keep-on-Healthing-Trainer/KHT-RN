@@ -16,7 +16,7 @@ const UserScreen = ({navigation}) => {
             <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
             <Stack.Screen name="SignupTab" component={SignupTab} options={{ headerShown: false }} />
             <Stack.Screen name="ProfileTab" component={ProfileTab} options={{ headerShown: false }} />
-            <Stack.Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }} initialRouteName={"HomeScreen"} />
         </Stack.Navigator>
     );
 }

@@ -5,9 +5,8 @@ import {Styles as S} from './styled';
 import BackPage from "../../../components/header/BackHeader";
 import InputCheck from "../../../components/Inputs/InputCheck";
 
-const EditNamTab = ({navigation, name}) => {
-
-  console.log(name);
+const EditNamTab = ({route, navigation}) => {
+  const {name} = route.params;
 
   return (
     <View style={S.container}>

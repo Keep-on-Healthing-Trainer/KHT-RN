@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -22,11 +22,14 @@ import RankingNoColor from '../assets/icons/RankingNoColor';
 
 const MainScreen = () => {
     const navigation = useNavigation();
-  
+
+    useEffect(() => {
+      navigation.navigate("HomeScreen", { screen: 'HomeScreen' });
+    }, []);
+
     return (
       <Tab.Navigator
         initialRouteName="HomeScreen"
-        component={HomeScreen}
         screenOptions={() => ({
           tabBarShowLabel: false,
           tabBarStyle: {
@@ -69,14 +72,20 @@ const MainScreen = () => {
               <>
                 {focused ? (
                   <TouchableOpacity style={Styles.container}
-                    onPress={() => navigation.navigate("HomeScreen", { screen: 'HomeScreen' })}
+                    onPress={() => navigation.reset({
+                      index: 0,
+                      routes: [{ name: 'HomeScreen' }],
+                    })}
                   >
                     <HomeColor></HomeColor>
                     <Text style={{color: color.Blue[4]}}>홈</Text>
                   </TouchableOpacity>
                 ) : (
                   <TouchableOpacity style={Styles.container}
-                    onPress={() => navigation.navigate("HomeScreen", { screen: 'HomeScreen' })}
+                    onPress={() => navigation.reset({
+                      index: 0,
+                      routes: [{ name: 'HomeScreen' }],
+                    })}
                   >
                     <HomeNoColor></HomeNoColor>
                     <Text style={{color: color.Gray[4]}}>홈</Text>

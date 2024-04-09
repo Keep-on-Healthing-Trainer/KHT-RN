@@ -10,7 +10,7 @@ const SelectTab = ({navigation}) => {
 
   return (
     <View style={S.container}>
-        <BackPage innerText="프로필 편집"></BackPage>
+        <BackPage innerText="프로필 편집" onPress={() => navigation.navigate("HomeTab", { screen: 'HomeTab' })}></BackPage>
         <View style={S.profileContainer}>
             {profileLink ? (
             <></>
@@ -24,25 +24,19 @@ const SelectTab = ({navigation}) => {
         <View style={S.nameContainer}>
           <View style={S.nameDiv}>
             <Text style={S.nameTagStyle}>이름</Text>
-            <TouchableOpacity
-            name="사용자 이름"
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab' })}>
+            <TouchableOpacity onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}>
               <Text style={S.nameStyle}>이나경</Text>
             </TouchableOpacity>
           </View>
           <View style={S.nameDiv}>
             <Text style={S.nameTagStyle}>아이디</Text>
-            <TouchableOpacity
-            innerText="사용자 아이디"
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab' })}>
+            <TouchableOpacity onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}>
               <Text style={S.nameStyle}>moshsdkfjsak</Text>
             </TouchableOpacity>
           </View>
           <View style={S.nameDiv}>
             <Text style={S.nameTagStyle}>전화번호</Text>
-            <TouchableOpacity
-            innerText="사용자 전화번호"
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab' })}>
+            <TouchableOpacity onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}>
               <Text style={S.nameStyle}>01055558888</Text>
             </TouchableOpacity>
           </View>
