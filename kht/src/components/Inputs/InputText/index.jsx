@@ -3,7 +3,10 @@ import { TextInput, StyleSheet, Text } from "react-native";
 import { color } from "../../../styles/theme"
 import constants from '../../../styles/constants'
 
-const Input = ({innerText, navigation, name}) => {
+const Input = (props) => {
+  const innerText = props.innerText;
+  const name = props.name;
+
   const [text, setText] = useState('');
 
   const onChangeText = (innerText) => {

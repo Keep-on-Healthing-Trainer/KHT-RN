@@ -4,7 +4,9 @@ import { color } from '../../../styles/theme'
 import constants from '../../../styles/constants'
 import Arrow from '../../../assets/icons/Arrow'
 
-const BackPage = ({innerText, navigation, onPress}) => {
+const BackPage = (props) => {
+  const innerText = props.innerText;
+  const onPress = props.onPress;
 
   return (
     <>

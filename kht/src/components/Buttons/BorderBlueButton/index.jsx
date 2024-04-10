@@ -3,7 +3,9 @@ import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { color } from "../../../styles/theme"
 import constants from '../../../styles/constants'
 
-const BorderBlueButton = ({innerText, navigation, onPress}) => {
+const BorderBlueButton = (props) => {
+  const innerText = props.innerText;
+  const onPress = props.onPress;
 
   return (
     <TouchableOpacity style={Styles.Bottom} onPress={onPress}>

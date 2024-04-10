@@ -3,7 +3,9 @@ import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import constants from '../../../styles/constants';
 import { color } from '../../../styles/theme';
 
-const SkipHeader = ({innerText, navigation, onPress}) => {
+const SkipHeader = (props) => {
+  const innerText = props.innerText;
+  const onPress = props.onPress;
 
   return (
     <>

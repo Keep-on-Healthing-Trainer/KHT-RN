@@ -5,7 +5,9 @@ import { color } from "../../../styles/theme";
 import constants from '../../../styles/constants';
 import Delete from '../../../assets/icons/Delete';
 
-const Input = ({innerText, navigation}) => {
+const Input = (props) => {
+  const innerText = props.innerText;
+
   const [text, setText] = useState('');
 
   useEffect(() => {

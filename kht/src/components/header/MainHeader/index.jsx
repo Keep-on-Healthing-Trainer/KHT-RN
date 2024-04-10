@@ -4,7 +4,9 @@ import constants from '../../../styles/constants'
 import Title from "../../../assets/icons/Title";
 
 
-const MainHeader = ({innerText, navigation, onPress}) => {
+const MainHeader = (props) => {
+  const innerText = props.innerText;
+  const onPress = props.onPress;
 
   return (
       <View style={Styles.container}>
