@@ -11,7 +11,7 @@ export default class extends React.Component{
     isLoading : true
   };
 
-  componentDidMount= async() => {  
+  componentDidMount= async() => {
     setTimeout(() => {this.setState({isLoading: false})}, 3000);
   }
 
@@ -23,11 +23,9 @@ export default class extends React.Component{
     }else{
 
       return (
-
         <NavigationContainer>
           <UserScreen/>
         </NavigationContainer>
-        
       );
     }
   }

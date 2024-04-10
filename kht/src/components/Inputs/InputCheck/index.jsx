@@ -1,4 +1,4 @@
-import React, { createRef, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextInput, StyleSheet, View } from "react-native";
 
 import { color } from "../../../styles/theme";
@@ -6,11 +6,22 @@ import constants from '../../../styles/constants';
 import Delete from '../../../assets/icons/Delete';
 
 const Input = ({innerText, navigation}) => {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    setText(innerText);
+  }, []);
+
+  const onChangeText = (innerText) => {
+    setText(innerText);
+  }
+
   return (
     <View> 
       <TextInput
         style={Styles.Bottom}
-        >{innerText}</TextInput>
+        onChangeText={onChangeText}
+        >{text}</TextInput>
         <Delete style={Styles.topItem}></Delete>
     </View>
   )
@@ -21,6 +32,7 @@ const Styles = StyleSheet.create({
         backgroundColor: color.White,
         marginBottom: "5%",
         width: constants.width/10*8,
+        height: 50,
         padding: 10,
         borderRadius: 10,
         fontSize: 16,

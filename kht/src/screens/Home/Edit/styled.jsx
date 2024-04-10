@@ -11,7 +11,8 @@ export const Styles = StyleSheet.create({
       alignItems: 'center'
     },
     titleContainer: {
-      marginTop: constants.height/30
+      marginTop: constants.height/30,
+      marginBottom: constants.height/2
     },
     nameTitle: {
       color: color.Gray[4],

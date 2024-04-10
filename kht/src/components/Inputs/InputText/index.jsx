@@ -4,9 +4,22 @@ import { color } from "../../../styles/theme"
 import constants from '../../../styles/constants'
 
 const Input = ({innerText, navigation, name}) => {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    setText(innerText);
+  }, []);
+
+  const onChangeText = (innerText) => {
+    setText(innerText);
+  }
 
   return (
-    <TextInput style={Styles.Bottom} placeholder={innerText} secureTextEntry={name}></TextInput>
+    <TextInput
+    style={Styles.Bottom}
+    secureTextEntry={name}
+    onChangeText={onChangeText}
+    >{text}</TextInput>
   )
 }
 
