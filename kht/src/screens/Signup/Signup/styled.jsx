@@ -33,5 +33,9 @@ export const Styles = StyleSheet.create({
       position: 'absolute',
       left: constants.width/1.4,
       top: constants.height/22
+    },
+    passwordCheckError: {
+      color: color.Red,
+      fontSize: 12
     }
 })
