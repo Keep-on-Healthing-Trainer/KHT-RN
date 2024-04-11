@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { TextInput, StyleSheet, Text } from "react-native";
+import React, { useState } from "react";
+import { TextInput, StyleSheet } from "react-native";
 import { color } from "../../../styles/theme"
 import constants from '../../../styles/constants'
 
@@ -7,10 +7,8 @@ const Input = (props) => {
   const innerText = props.innerText;
   const name = props.name;
 
-  const [text, setText] = useState('');
-
   const onChangeText = (innerText) => {
-    setText(innerText);
+    props.onGetInText(innerText);
   }
 
   return (

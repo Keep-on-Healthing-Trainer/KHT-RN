@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { TextInput, StyleSheet, View } from "react-native";
+import React, { useState, useEffect, createRef } from "react";
+import { TextInput, StyleSheet, View, TouchableOpacity } from "react-native";
 
 import { color } from "../../../styles/theme";
 import constants from '../../../styles/constants';
@@ -7,7 +7,6 @@ import Delete from '../../../assets/icons/Delete';
 
 const Input = (props) => {
   const innerText = props.innerText;
-
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -16,6 +15,11 @@ const Input = (props) => {
 
   const onChangeText = (innerText) => {
     setText(innerText);
+    props.onGetInText(innerText);
+  }
+
+  const onDelete = () => {
+    setText('');
   }
 
   return (
@@ -24,7 +28,9 @@ const Input = (props) => {
         style={Styles.Bottom}
         onChangeText={onChangeText}
         >{text}</TextInput>
-        <Delete style={Styles.topItem}></Delete>
+        <TouchableOpacity style={Styles.topItem} onPress={onDelete}>
+          <Delete></Delete>
+        </TouchableOpacity>
     </View>
   )
 }
@@ -45,8 +51,12 @@ const Styles = StyleSheet.create({
     },
     topItem: {
         position: 'absolute',
-        left: constants.width/1.4,
-        top: constants.height/40
+        width: constants.width/12,
+        height: constants.height/40,
+        left: constants.width/1.5,
+        top: constants.height/50,
+        justifyContent: 'center',
+        alignItems: 'flex-end'
     }
 })
 
