@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 
 import {Styles as S} from './styled';
 import Profile from "../../../assets/icons/Profile";

@@ -9,7 +9,7 @@ import MainScreen from './MainScreen';
 
 const Stack = createStackNavigator();
 
-const UserScreen = ({navigation}) => {
+const UserScreen = () => {
   
     return (
         <Stack.Navigator initialRouteName="Login">

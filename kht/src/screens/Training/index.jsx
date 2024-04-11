@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, Image, Alert } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text } from "react-native";
 import { useIsFocused } from '@react-navigation/native';
 import { Camera } from 'expo-camera';
 

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, Image, Pressable } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Image } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 
 import { Styles as S } from './styled';

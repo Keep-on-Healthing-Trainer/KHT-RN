@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 
 import {Styles as S} from './styled';
 import MainHeader from "../../components/header/MainHeader";
