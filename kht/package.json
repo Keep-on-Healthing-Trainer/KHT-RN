@@ -19,6 +19,7 @@
     "@react-navigation/native-stack": "^6.9.25",
     "@react-navigation/stack": "^6.3.28",
     "@reduxjs/toolkit": "^2.2.1",
+    "axios": "^1.6.8",
     "expo": "~50.0.14",
     "expo-barcode-scanner": "~12.9.3",
     "expo-camera": "~14.1.1",
