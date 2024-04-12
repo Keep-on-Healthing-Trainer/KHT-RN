@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import {Styles as S} from './styled';
 import onLogin from '../../utils/Login';
+import CheckBox from "../../components/CheckBox";
 
 import Button from "../../components/Buttons/ColorBlueButton";
 import InputText from "../../components/Inputs/InputText";
@@ -10,8 +11,9 @@ import Eyes from "../../assets/icons/Eyes";
 import CloseEyes from "../../assets/icons/CloseEyes";
 
 const Login = ({navigation}) => {
-  const [passwordType, setPasswordType] = useState(true);
-  const [loginState, setLoginState] = useState(true);
+  const [passwordType, setPasswordType] = useState(false);
+  const [loginCheck, setLoginCheck] = useState(false);
+  const [loginState, setLoginState] = useState(false);
   const [loginData, setLoginData] = useState({
     userId: "",
     password: "",
@@ -25,8 +27,12 @@ const Login = ({navigation}) => {
   }
 
   const onPressLogin = () => {
-    onLogin(loginData);
+    onLogin(loginData, loginCheck);
     navigation.navigate("MainScreen", { screen: 'MainScreen' });
+  }
+
+  const onGetPress = (onGetInPress) => {
+    setLoginCheck(onGetInPress);
   }
 
   return (
@@ -66,6 +72,7 @@ const Login = ({navigation}) => {
             <></>
           )}
         </View>
+        <CheckBox onGetInPress={onGetPress}></CheckBox>
         <View style={S.buttonContainer}>
           <Button innerText="로그인"
             onPress={onPressLogin}
