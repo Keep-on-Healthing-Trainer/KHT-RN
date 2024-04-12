@@ -38,7 +38,7 @@ const ProfileTab = ({navigation}) => {
 
   const onPressImage = () => {
     onImage(imageUrl);
-    navigation.navigate("MainScreen", { screen: 'MainScreen' });
+    navigation.navigate("Login", { screen: 'Login' });
   }
 
   return (
@@ -52,7 +52,7 @@ const ProfileTab = ({navigation}) => {
             <ImageSelect></ImageSelect>
           </Pressable>
         )}
-        <Text style={S.text}>프로필 이미지를 설정하지 않을{"\n"}경우에는 기본 프로필로 설정됩니다.</Text>
+        <Text style={S.text}>프로필을 설정하지 않을{"\n"}경우에는 기본 프로필로 설정됩니다.</Text>
         <View style={S.button}>
           <Button innerText="저장하기" onPress={onPressImage}></Button>
         </View>
