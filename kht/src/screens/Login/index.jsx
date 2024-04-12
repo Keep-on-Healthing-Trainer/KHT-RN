@@ -11,6 +11,7 @@ import CloseEyes from "../../assets/icons/CloseEyes";
 
 const Login = ({navigation}) => {
   const [passwordType, setPasswordType] = useState(true);
+  const [loginState, setLoginState] = useState(true);
   const [loginData, setLoginData] = useState({
     userId: "",
     password: "",
@@ -59,6 +60,11 @@ const Login = ({navigation}) => {
                 <CloseEyes style={S.passwordEyes} onPress={() => setPasswordType(true)}></CloseEyes>
             )}
           </View>
+          {loginState ? (
+            <Text style={S.loginStateError}>아이디 또는 비밀번호가 일치하지 않습니다.</Text>
+          ) : (
+            <></>
+          )}
         </View>
         <View style={S.buttonContainer}>
           <Button innerText="로그인"

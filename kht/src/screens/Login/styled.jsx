@@ -65,5 +65,10 @@ export const Styles = StyleSheet.create({
     position: 'absolute',
     left: constants.width/1.4,
     top: constants.height/70
+  },
+  loginStateError: {
+    color: color.Red,
+    fontSize: 12,
+    width: constants.width/10*8
   }
 })
