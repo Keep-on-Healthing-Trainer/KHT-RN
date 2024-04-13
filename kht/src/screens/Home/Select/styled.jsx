@@ -26,21 +26,29 @@ export const Styles = StyleSheet.create({
         marginTop: constants.height/50
     },
     nameContainer: {
-        width: constants.width,
+        width: constants.width/10*8
     },
     nameDiv: {
         flexDirection: 'row',
-        marginLeft: constants.width/7,
-        marginBottom: constants.height/20
+        alignItems: 'center',
+        marginBottom: constants.height/20,
+        height: constants.height/30
     },
     nameTagStyle: {
         color: color.Black,
         fontSize: 15,
-        width: constants.width/4
+        height: constants.height/30,
+        width: constants.width/10*3
     },
     nameStyle: {
         color: color.Black,
         fontSize: 15,
-        fontWeight: '600'
+        fontWeight: '600',
+        height: constants.height/30,
+        width: constants.width/10*4.5
+    },
+    nameBox: {
+        width: constants.width/10,
+        height: constants.height/30
     }
 })

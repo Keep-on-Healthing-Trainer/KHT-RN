@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import {Styles as S} from './styled';
 import Profile from "../../../assets/icons/Profile";
 import BackPage from "../../../components/header/BackHeader";
+import ProfileArrow from "../../../assets/icons/ProfileArrow";
 
 const SelectTab = ({navigation}) => {
   const [profileLink, setProfileLink] = useState(null);
@@ -24,20 +25,32 @@ const SelectTab = ({navigation}) => {
         <View style={S.nameContainer}>
           <View style={S.nameDiv}>
             <Text style={S.nameTagStyle}>이름</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}>
-              <Text style={S.nameStyle}>이나경</Text>
+            <Text style={S.nameStyle}>이나경</Text>
+            <TouchableOpacity
+            style={S.nameBox}
+            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}
+            >
+              <ProfileArrow></ProfileArrow>
             </TouchableOpacity>
           </View>
           <View style={S.nameDiv}>
             <Text style={S.nameTagStyle}>아이디</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}>
-              <Text style={S.nameStyle}>moshsdkfjsak</Text>
+            <Text style={S.nameStyle}>mosh</Text>
+            <TouchableOpacity
+            style={S.nameBox}
+            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}
+            >
+              <ProfileArrow></ProfileArrow>
             </TouchableOpacity>
           </View>
           <View style={S.nameDiv}>
             <Text style={S.nameTagStyle}>전화번호</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}>
-              <Text style={S.nameStyle}>01055558888</Text>
+            <Text style={S.nameStyle}>01055558888</Text>
+            <TouchableOpacity
+            style={S.nameBox}
+            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}
+            >
+              <ProfileArrow></ProfileArrow>
             </TouchableOpacity>
           </View>
         </View>
