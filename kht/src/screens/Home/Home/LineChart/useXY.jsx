@@ -14,7 +14,8 @@ const useXY = (data) => {
     return data.map((count, index) => {
 
       const multiplierHeight = maxCount > 0 ? maxLineHeight / maxCount : 0;
-      const lineHeight = maxLineHeight - Math.round(count * multiplierHeight);
+      const line = maxLineHeight - Math.round(count * multiplierHeight);
+      const lineHeight = Math.max(line, 1);
       
       return {
         x: index * interval,
