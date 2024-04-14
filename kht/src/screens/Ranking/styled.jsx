@@ -65,7 +65,7 @@ export const Styles = StyleSheet.create({
       alignItems: 'center',
       paddingLeft: constants.width/15,
       paddingRight: constants.width/15,
-      marginBottom: 5
+      marginBottom: 10
     },
     rankingTableProfile: {
       width: 40,
