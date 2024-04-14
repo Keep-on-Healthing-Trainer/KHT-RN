@@ -8,7 +8,7 @@ const onRefresh = async () => {
     // try {
     //     const response = await axios.post(`${API_KEY}/user/refresh`, {
     //         headers: {
-    //             Authorization: `Bearer ${refreshToken}`
+    //             Refresh-Token: `${refreshToken}`
     //         }
     //     });
     //     console.log("받은 값:", response);

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { API_KEY } from "@env";
 
-const onLogin = async ( data ) => {
-    console.log(data);
+const onLogin = async ( data, state ) => {
+    console.log(data, state);
     // try {
     //     const response = await axios.post(`${API_KEY}/user/login`, {
     //         userId: data.userId,
