@@ -4,6 +4,15 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import Check from "../../assets/icons/Check";
 import { color } from "../../styles/theme";
 import constants from '../../styles/constants';
+import {
+    useFonts,
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  } from '@expo-google-fonts/roboto';
 
 const CheckBox = (props) => {
   const [loginSelect, setLoginSelect] = useState(false);
@@ -42,7 +51,8 @@ const Styles = StyleSheet.create({
     text: {
         marginLeft: 10,
         fontSize: 14,
-        color: color.Gray[8]
+        color: color.Gray[8],
+        fontFamily: "Roboto_400Regular"
     }
 })
 

@@ -2,6 +2,15 @@ import React from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { color } from "../../../styles/theme"
 import constants from '../../../styles/constants'
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 const ColorWhiteButton = (props) => {
   const innerText = props.innerText;
@@ -27,6 +36,7 @@ const Styles = StyleSheet.create({
       fontSize: 16,
       color: color.Blue[7],
       textAlign: "center",
+      fontFamily: "Roboto_400Regular"
     }
 })
 

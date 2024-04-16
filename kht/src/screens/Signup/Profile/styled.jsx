@@ -1,6 +1,15 @@
 import { StyleSheet } from "react-native";
 import { color } from "../../../styles/theme";
 import constants from "../../../styles/constants";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 export const Styles = StyleSheet.create({
     container: {
@@ -23,7 +32,7 @@ export const Styles = StyleSheet.create({
       textAlign: 'center',
       marginTop: constants.height/30,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: "Roboto_400Regular",
       color: color.Blue[7]
     },
     button: {

@@ -1,6 +1,15 @@
 import { StyleSheet } from "react-native";
 import constants from "../../../styles/constants";
 import { color } from "../../../styles/theme";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 export const Styles = StyleSheet.create({
     container: {
@@ -57,12 +66,13 @@ export const Styles = StyleSheet.create({
     textCount: {
       color: color.Black,
       fontSize: 20,
-      fontWeight: 'bold'
+      fontFamily: "Roboto_400Regular"
     },
     textComment: {
       color: color.Black,
       fontSize: 12,
-      marginBottom: 50
+      marginBottom: 50,
+      fontFamily: "Roboto_400Regular"
     },
     nameContanier: {
       width: constants.width,
@@ -70,13 +80,13 @@ export const Styles = StyleSheet.create({
     },
     IdName: {
       fontSize: 20,
-      fontWeight: '600',
+      fontFamily: "Roboto_400Regular",
       color: color.Gray[5],
       marginBottom: 10
     },
     IdComment: {
       fontSize: 14,
-      fontWeight: '500',
+      fontFamily: "Roboto_400Regular",
       color: color.Gray[4]
     }
 })

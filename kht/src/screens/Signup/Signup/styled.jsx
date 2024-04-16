@@ -1,6 +1,15 @@
 import { StyleSheet } from "react-native";
 import constants from "../../../styles/constants";
 import { color } from "../../../styles/theme";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 export const Styles = StyleSheet.create({
     container: {
@@ -14,7 +23,7 @@ export const Styles = StyleSheet.create({
       backgroundColor: color.White,
       color: color.Black,
       fontSize: 14,
-      fontWeight: 'medium',
+      fontFamily: "Roboto_400Regular",
       marginBottom: constants.height/70
     },
     inputOutContainer: {
@@ -36,6 +45,7 @@ export const Styles = StyleSheet.create({
     },
     passwordCheckError: {
       color: color.Red,
-      fontSize: 12
+      fontSize: 12,
+      fontFamily: "Roboto_400Regular"
     }
 })

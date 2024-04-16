@@ -2,6 +2,15 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import constants from '../../../styles/constants';
 import { color } from '../../../styles/theme';
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 const SkipHeader = (props) => {
   const innerText = props.innerText;
@@ -40,7 +49,7 @@ const Styles = StyleSheet.create({
     text: {
       color: color.Black,
       fontSize: 18,
-      fontWeight: 'medium',
+      fontFamily: "Roboto_400Regular"
     },
     skipButton: {
         color: color.Blue[7],

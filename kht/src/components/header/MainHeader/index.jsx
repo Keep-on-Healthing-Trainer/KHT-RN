@@ -2,7 +2,15 @@ import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 import constants from '../../../styles/constants'
 import Title from "../../../assets/icons/Title";
-
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 const MainHeader = (props) => {
   const innerText = props.innerText;
@@ -44,6 +52,7 @@ const Styles = StyleSheet.create({
     },
     text: {
       fontSize: 22,
+      fontFamily: "Roboto_400Regular"
     }
 })
 

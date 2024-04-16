@@ -1,6 +1,15 @@
 import { StyleSheet } from "react-native";
 import constants from "../../styles/constants";
 import { color } from "../../styles/theme";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 export const Styles = StyleSheet.create({
     container: {
@@ -35,21 +44,22 @@ export const Styles = StyleSheet.create({
     oneRankText: {
       color: color.Blue[10],
       fontSize: 30,
-      fontWeight: 'bold'
+      fontFamily: "Roboto_400Regular"
     },
     rankText: {
       color: color.Blue[10],
       fontSize: 22,
-      fontWeight: 'bold'
+      fontFamily: "Roboto_400Regular"
     },
     countText: {
       color: color.Gray[4],
       fontSize: 12,
+      fontFamily: "Roboto_400Regular"
     },
     nameText: {
       color: color.Black,
       fontSize: 18,
-      fontWeight: 'bold'
+      fontFamily: "Roboto_400Regular"
     },
     rankingContainer: {
       width: constants.width,
@@ -74,7 +84,8 @@ export const Styles = StyleSheet.create({
     },
     rankingTableText: {
       fontSize: 12,
-      color: color.Black
+      color: color.Black,
+      fontFamily: "Roboto_400Regular"
     },
     myRankingContainer: {
       width: constants.width,
@@ -102,6 +113,6 @@ export const Styles = StyleSheet.create({
     myRankingText: {
       fontSize: 15,
       color: color.Black,
-      fontWeight: 'bold'
+      fontFamily: "Roboto_400Regular"
     },
 })

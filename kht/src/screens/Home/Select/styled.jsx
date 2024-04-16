@@ -1,6 +1,15 @@
 import { StyleSheet } from "react-native";
 import constants from "../../../styles/constants";
 import { color } from "../../../styles/theme";
+import {
+    useFonts,
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  } from '@expo-google-fonts/roboto';
 
 export const Styles = StyleSheet.create({
     container: {
@@ -23,7 +32,8 @@ export const Styles = StyleSheet.create({
     profileText: {
         color: color.Blue[10],
         fontSize: 14,
-        marginTop: constants.height/50
+        marginTop: constants.height/50,
+        fontFamily: "Roboto_400Regular"
     },
     nameContainer: {
         width: constants.width/10*8
@@ -37,13 +47,14 @@ export const Styles = StyleSheet.create({
     nameTagStyle: {
         color: color.Black,
         fontSize: 15,
+        fontFamily: "Roboto_400Regular",
         height: constants.height/30,
         width: constants.width/10*3
     },
     nameStyle: {
         color: color.Black,
         fontSize: 15,
-        fontWeight: '600',
+        fontFamily: "Roboto_400Regular",
         height: constants.height/30,
         width: constants.width/10*4.5
     },

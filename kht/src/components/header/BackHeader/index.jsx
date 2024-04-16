@@ -3,6 +3,16 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { color } from '../../../styles/theme'
 import constants from '../../../styles/constants'
 import Arrow from '../../../assets/icons/Arrow'
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
+
 
 const BackPage = (props) => {
   const innerText = props.innerText;
@@ -45,7 +55,7 @@ const Styles = StyleSheet.create({
     text: {
       color: color.Black,
       fontSize: 18,
-      fontWeight: 'medium',
+      fontFamily: "Roboto_400Regular"
     }
 })
 

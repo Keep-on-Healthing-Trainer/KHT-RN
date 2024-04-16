@@ -5,6 +5,15 @@ import Svg, { Line, Circle, Text } from 'react-native-svg';
 import useLine from './useLine'
 import constants from "../../../../styles/constants";
 import { color } from "../../../../styles/theme";
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 const LineChart = ({ points, data }) => {
     const [lines] = useLine(points);
@@ -39,7 +48,8 @@ const Styles = StyleSheet.create({
       fill: color.Blue[6]
     },
     text: {
-      fontSize: 4
+      fontSize: 4,
+      fontFamily: "Roboto_400Regular"
     }
 })
 
