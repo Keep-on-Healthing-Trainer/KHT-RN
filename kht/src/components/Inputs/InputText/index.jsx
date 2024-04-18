@@ -15,6 +15,14 @@ import {
 const Input = (props) => {
   const innerText = props.innerText;
   const name = props.name;
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
 
   const onChangeText = (innerText) => {
     props.onGetInText(innerText);
@@ -39,7 +47,7 @@ const Styles = StyleSheet.create({
         borderRadius: 10,
         fontSize: 16,
         color: color.Black,
-        fontFamily: "Roboto_400Regular"
+        fontFamily: "Roboto_500Medium"
       }
 })
 

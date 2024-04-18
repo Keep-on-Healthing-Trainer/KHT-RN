@@ -17,6 +17,14 @@ import {
 const BackPage = (props) => {
   const innerText = props.innerText;
   const onPress = props.onPress;
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
 
   return (
     <>
@@ -55,7 +63,7 @@ const Styles = StyleSheet.create({
     text: {
       color: color.Black,
       fontSize: 18,
-      fontFamily: "Roboto_400Regular"
+      fontFamily: "Roboto_500Medium"
     }
 })
 

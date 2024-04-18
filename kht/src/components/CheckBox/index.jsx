@@ -16,6 +16,14 @@ import {
 
 const CheckBox = (props) => {
   const [loginSelect, setLoginSelect] = useState(false);
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
 
   const onCheck = () => {
     setLoginSelect(!loginSelect);
@@ -52,7 +60,7 @@ const Styles = StyleSheet.create({
         marginLeft: 10,
         fontSize: 14,
         color: color.Gray[8],
-        fontFamily: "Roboto_400Regular"
+        fontFamily: "Roboto_500Medium"
     }
 })
 

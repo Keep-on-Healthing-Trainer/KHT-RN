@@ -5,6 +5,15 @@ import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
+import {
+  useFonts,
+  Roboto_100Thin,
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+  Roboto_900Black,
+} from '@expo-google-fonts/roboto';
 
 import { color } from "../styles/theme";
 import constants from '../styles/constants';
@@ -22,6 +31,14 @@ import RankingNoColor from '../assets/icons/RankingNoColor';
 
 const MainScreen = () => {
     const navigation = useNavigation();
+    let [fontsLoaded] = useFonts({
+      Roboto_100Thin,
+      Roboto_300Light,
+      Roboto_400Regular,
+      Roboto_500Medium,
+      Roboto_700Bold,
+      Roboto_900Black,
+    });
 
     useEffect(() => {
       navigation.navigate("HomeScreen", { screen: 'HomeScreen' });
@@ -49,14 +66,14 @@ const MainScreen = () => {
                     onPress={() => navigation.navigate("Training", { screen: 'Training' })}
                   >
                     <TrainingColor></TrainingColor>
-                    <Text style={{color: color.Blue[4]}}>트레이닝</Text>
+                    <Text style={{color: color.Blue[4], fontFamily: "Roboto_500Medium"}}>트레이닝</Text>
                   </TouchableOpacity>
                 ) : (
                   <TouchableOpacity style={Styles.container}
                     onPress={() => navigation.navigate("Training", { screen: 'Training' })}
                   >
                     <TrainingNoColor></TrainingNoColor>
-                    <Text style={{color: color.Gray[4]}}>트레이닝</Text>
+                    <Text style={{color: color.Gray[4], fontFamily: "Roboto_500Medium"}}>트레이닝</Text>
                   </TouchableOpacity>
                 )}
               </>
@@ -78,7 +95,7 @@ const MainScreen = () => {
                     })}
                   >
                     <HomeColor></HomeColor>
-                    <Text style={{color: color.Blue[4]}}>홈</Text>
+                    <Text style={{color: color.Blue[4], fontFamily: "Roboto_500Medium"}}>홈</Text>
                   </TouchableOpacity>
                 ) : (
                   <TouchableOpacity style={Styles.container}
@@ -88,7 +105,7 @@ const MainScreen = () => {
                     })}
                   >
                     <HomeNoColor></HomeNoColor>
-                    <Text style={{color: color.Gray[4]}}>홈</Text>
+                    <Text style={{color: color.Gray[4], fontFamily: "Roboto_500Medium"}}>홈</Text>
                   </TouchableOpacity>
                 )}
               </>
@@ -107,14 +124,14 @@ const MainScreen = () => {
                     onPress={() => navigation.navigate("Ranking", { screen: 'Ranking' })}
                   >
                     <RankingColor></RankingColor>
-                    <Text style={{color: color.Blue[4]}}>랭킹</Text>
+                    <Text style={{color: color.Blue[4], fontFamily: "Roboto_500Medium"}}>랭킹</Text>
                   </TouchableOpacity>
               ) : (
                 <TouchableOpacity style={Styles.container}
                   onPress={() => navigation.navigate("Ranking", { screen: 'Ranking' })}
                 >
                   <RankingNoColor></RankingNoColor>
-                  <Text style={{color: color.Gray[4]}}>랭킹</Text>
+                  <Text style={{color: color.Gray[4], fontFamily: "Roboto_500Medium"}}>랭킹</Text>
                 </TouchableOpacity>
                   )}
               </>

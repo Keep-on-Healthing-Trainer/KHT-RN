@@ -15,6 +15,14 @@ import {
 const MainHeader = (props) => {
   const innerText = props.innerText;
   const onPress = props.onPress;
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
 
   return (
       <View style={Styles.container}>
@@ -52,7 +60,7 @@ const Styles = StyleSheet.create({
     },
     text: {
       fontSize: 22,
-      fontFamily: "Roboto_400Regular"
+      fontFamily: "Roboto_500Medium"
     }
 })
 
