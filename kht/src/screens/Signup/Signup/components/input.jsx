@@ -31,10 +31,6 @@ const Input = ({navigation}) => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <View style={Styles.inputOutContainer}>
         <View style={Styles.inputContainer}>

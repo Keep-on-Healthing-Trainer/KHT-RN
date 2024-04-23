@@ -27,10 +27,6 @@ const SignupTab = ({navigation}) => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <View style={Styles.container}>
       <BackPage innerText="회원가입" onPress={() => navigation.navigate("Login", { screen: 'Login' })} />
