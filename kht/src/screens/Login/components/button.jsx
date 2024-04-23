@@ -15,28 +15,24 @@ import {
 import CheckBox from "../../../components/CheckBox";
 import ColorBlueButton from "../../../components/Buttons/ColorBlueButton";
 
-const Button = ({navigation}) => {
-    let [fontsLoaded] = useFonts({
-        Roboto_100Thin,
-        Roboto_300Light,
-        Roboto_400Regular,
-        Roboto_500Medium,
-        Roboto_700Bold,
-        Roboto_900Black,
-    });
-    
-    if (!fontsLoaded) {
-      return null;
-    }
+const Button = (props) => {
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
 
   return (
     <>
         <CheckBox></CheckBox>
         <View style={Styles.buttonContainer}>
-          <ColorBlueButton innerText="로그인"></ColorBlueButton>
+          <ColorBlueButton innerText="로그인" onPress={props.onLoginPress}></ColorBlueButton>
           <View style={Styles.textContainer}>
             <Text style={Styles.textLeft}>계정이 없으신가요?</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={props.onSignupPress}>
               <Text style={Styles.textRight}>회원가입</Text>
             </TouchableOpacity>
           </View>

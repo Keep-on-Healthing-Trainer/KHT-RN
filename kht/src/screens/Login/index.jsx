@@ -26,12 +26,7 @@ const Login = ({navigation}) => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) {
-      return null;
-  }
-
   return (
-
     <View style={Styles.container}>
       <View style={Styles.backContainer}>
         <View style={Styles.logoContainer}>
@@ -39,15 +34,16 @@ const Login = ({navigation}) => {
             style={Styles.img}
             source={require("../../assets/images/Logo.png")}
             resizeMode="contain"
-          >
-          </Image>
+          />
           <Text style={Styles.text}>KH TRAINER</Text>
         </View>
         <Input />
-        <Button />
+        <Button
+          onLoginPress={() => navigation.navigate("MainScreen", { screen: 'MainScreen' })}
+          onSignupPress={() => navigation.navigate("SignupTab", { screen: 'SignupTab' })}
+        />
       </View>
     </View>
-
   )
 }
 
