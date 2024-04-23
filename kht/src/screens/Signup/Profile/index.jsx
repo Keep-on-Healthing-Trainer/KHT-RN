@@ -29,10 +29,6 @@ const ProfileTab = ({navigation}) => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
   const onPressImage = () => {
     onImage(imageUrl);
     navigation.navigate("Login", { screen: 'Login' });

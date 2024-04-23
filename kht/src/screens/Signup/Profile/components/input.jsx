@@ -29,10 +29,6 @@ const Input = ({navigation}) => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
   const uploadImage = async () => {
     if(!status?.granted) {
       const permission = await requestPermission();
