@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 import constants from "../../styles/constants";
 import { color } from "../../styles/theme";
@@ -14,8 +14,8 @@ import {
 } from '@expo-google-fonts/roboto';
 
 import MainHeader from "../../components/header/MainHeader";
-import topRanking from "./components/topRanking";
-import bottomRanking from "./components/bottomRanking";
+import TopRanking from "./components/topRanking";
+import BottomRanking from "./components/bottomRanking";
 
 const Ranking = ({navigation}) => {
   let [fontsLoaded] = useFonts({
@@ -27,15 +27,11 @@ const Ranking = ({navigation}) => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <View style={Styles.container}>
       <MainHeader />
-      <topRanking />
-      <bottomRanking />
+      <TopRanking />
+      <BottomRanking />
       <View style={Styles.myRankingContainer}>
         <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.myRankingProfile}></Image>
         <Text style={Styles.myRankingText}>이나경</Text>

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 import constants from "../../../styles/constants";
 import { color } from "../../../styles/theme";
@@ -13,7 +13,7 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
-const bottomRanking = (props) => {
+const BottomRanking = (props) => {
     let [fontsLoaded] = useFonts({
         Roboto_100Thin,
         Roboto_300Light,
@@ -22,45 +22,41 @@ const bottomRanking = (props) => {
         Roboto_700Bold,
         Roboto_900Black,
       });
-    
-      if (!fontsLoaded) {
-        return null;
-      }
 
   return (
     <View style={Styles.rankingContainer}>
         <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
         <Text style={Styles.rankingTableText}>제갈집집</Text>
         <Text style={Styles.rankingTableText}>800회</Text>
         </View>
         <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
         <Text style={Styles.rankingTableText}>제갈집집</Text>
         <Text style={Styles.rankingTableText}>800회</Text>
         </View>
         <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
         <Text style={Styles.rankingTableText}>제갈집집</Text>
         <Text style={Styles.rankingTableText}>800회</Text>
         </View>
         <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
         <Text style={Styles.rankingTableText}>제갈집집</Text>
         <Text style={Styles.rankingTableText}>800회</Text>
         </View>
         <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
         <Text style={Styles.rankingTableText}>제갈집집</Text>
         <Text style={Styles.rankingTableText}>800회</Text>
         </View>
         <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
         <Text style={Styles.rankingTableText}>제갈집집</Text>
         <Text style={Styles.rankingTableText}>800회</Text>
         </View>
         <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
         <Text style={Styles.rankingTableText}>제갈집집</Text>
         <Text style={Styles.rankingTableText}>800회</Text>
         </View>
@@ -83,7 +79,8 @@ const Styles = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: constants.width/15,
         paddingRight: constants.width/15,
-        marginBottom: 10
+        marginBottom: 10,
+        borderRadius: 5
       },
       rankingTableProfile: {
         width: 40,
@@ -125,4 +122,4 @@ const Styles = StyleSheet.create({
       }
 })
 
-export default bottomRanking;
+export default BottomRanking;

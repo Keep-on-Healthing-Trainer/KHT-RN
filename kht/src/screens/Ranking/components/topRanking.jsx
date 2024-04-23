@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 import constants from "../../../styles/constants";
 import { color } from "../../../styles/theme";
@@ -13,7 +13,7 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
-const topRanking = (props) => {
+const TopRanking = (props) => {
     let [fontsLoaded] = useFonts({
         Roboto_100Thin,
         Roboto_300Light,
@@ -22,28 +22,24 @@ const topRanking = (props) => {
         Roboto_700Bold,
         Roboto_900Black,
       });
-    
-      if (!fontsLoaded) {
-        return null;
-      }
 
   return (
       <View style={Styles.topRankContainer}>
         <View style={Styles.oneContainer}>
           <Text style={Styles.rankText}>2nd</Text>
-          <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+          <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
           <Text style={Styles.countText}>2000회</Text>
           <Text style={Styles.nameText}>최유준</Text>
         </View>
         <View style={Styles.oneContainer}>
           <Text style={Styles.oneRankText}>1st</Text>
-          <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
+          <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
           <Text style={Styles.countText}>3000회</Text>
           <Text style={Styles.nameText}>이나경</Text>
         </View>
         <View style={Styles.oneContainer}>
           <Text style={Styles.rankText}>3rd</Text>
-          <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+          <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
           <Text style={Styles.countText}>1000회</Text>
           <Text style={Styles.nameText}>최은빈</Text>
         </View>
@@ -96,4 +92,4 @@ const Styles = StyleSheet.create({
     }
 })
 
-export default topRanking;
+export default TopRanking;
