@@ -1,61 +1,76 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-import {Styles as S} from './styled';
 import Profile from "../../../assets/icons/Profile";
 import BackPage from "../../../components/header/BackHeader";
-import ProfileArrow from "../../../assets/icons/ProfileArrow";
+import Selection from "./components/selection";
+
+import constants from "../../../styles/constants";
+import { color } from "../../../styles/theme";
+import {
+    useFonts,
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  } from '@expo-google-fonts/roboto';
 
 const SelectTab = ({navigation}) => {
   const [profileLink, setProfileLink] = useState(null);
 
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
+
   return (
-    <View style={S.container}>
+    <View style={Styles.container}>
         <BackPage innerText="프로필 편집" onPress={() => navigation.navigate("HomeTab", { screen: 'HomeTab' })}></BackPage>
-        <View style={S.profileContainer}>
+        <View style={Styles.profileContainer}>
             {profileLink ? (
             <></>
             ) : (
-            <Profile style={S.profile}></Profile>
+            <Profile style={Styles.profile}></Profile>
             )}
             <TouchableOpacity onPress={() => navigation.navigate("ProfileTab", { screen: 'ProfileTab' })}>
-                <Text style={S.profileText}>프로필 사진 수정</Text>
+                <Text style={Styles.profileText}>프로필 사진 수정</Text>
             </TouchableOpacity>
         </View>
-        <View style={S.nameContainer}>
-          <View style={S.nameDiv}>
-            <Text style={S.nameTagStyle}>이름</Text>
-            <Text style={S.nameStyle}>이나경</Text>
-            <TouchableOpacity
-            style={S.nameBox}
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}
-            >
-              <ProfileArrow></ProfileArrow>
-            </TouchableOpacity>
-          </View>
-          <View style={S.nameDiv}>
-            <Text style={S.nameTagStyle}>아이디</Text>
-            <Text style={S.nameStyle}>mosh</Text>
-            <TouchableOpacity
-            style={S.nameBox}
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}
-            >
-              <ProfileArrow></ProfileArrow>
-            </TouchableOpacity>
-          </View>
-          <View style={S.nameDiv}>
-            <Text style={S.nameTagStyle}>전화번호</Text>
-            <Text style={S.nameStyle}>01055558888</Text>
-            <TouchableOpacity
-            style={S.nameBox}
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}
-            >
-              <ProfileArrow></ProfileArrow>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <Selection />
     </View>
   )
 }
+
+const Styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: color.White,
+    width: constants.width,
+    height: constants.height,
+    alignItems: 'center'
+  },
+  profileContainer: {
+      alignItems: 'center',
+      margin: constants.height/20,
+      width: constants.width
+  },
+  profile: {
+      borderRadius: 50,
+      width: 100,
+      height: 100,
+  },
+  profileText: {
+      color: color.Blue[10],
+      fontSize: 14,
+      marginTop: constants.height/50,
+      fontFamily: "Roboto_400Regular"
+  }
+})
 
 export default SelectTab;
