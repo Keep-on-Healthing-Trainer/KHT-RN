@@ -42,7 +42,11 @@ const SelectTab = ({navigation}) => {
                 <Text style={Styles.profileText}>프로필 사진 수정</Text>
             </TouchableOpacity>
         </View>
-        <Selection />
+        <Selection
+        onFirstPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}
+        onSecondPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}
+        onThirdPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}
+        />
     </View>
   )
 }

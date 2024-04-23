@@ -13,7 +13,8 @@ import {
     Roboto_900Black,
   } from '@expo-google-fonts/roboto';
 
-const Selection = ({navigation}) => {
+const Selection = (props) => {
+  console.log(props.onFirstPress);
   const [profileLink, setProfileLink] = useState(null);
 
   let [fontsLoaded] = useFonts({
@@ -32,7 +33,7 @@ const Selection = ({navigation}) => {
             <Text style={Styles.nameStyle}>이나경</Text>
             <TouchableOpacity
             style={Styles.nameBox}
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}
+            onPress={props.onFirstPress}
             >
               <ProfileArrow></ProfileArrow>
             </TouchableOpacity>
@@ -42,7 +43,7 @@ const Selection = ({navigation}) => {
             <Text style={Styles.nameStyle}>mosh</Text>
             <TouchableOpacity
             style={Styles.nameBox}
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}
+            onPress={props.onSecondPress}
             >
               <ProfileArrow></ProfileArrow>
             </TouchableOpacity>
@@ -52,7 +53,7 @@ const Selection = ({navigation}) => {
             <Text style={Styles.nameStyle}>01055558888</Text>
             <TouchableOpacity
             style={Styles.nameBox}
-            onPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}
+            onPress={props.onThirdPress}
             >
               <ProfileArrow></ProfileArrow>
             </TouchableOpacity>
