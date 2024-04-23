@@ -32,8 +32,7 @@ const Login = ({navigation}) => {
             	style={Styles.img}
                 source={require("../../assets/images/Logo.png")}
                 resizeMode="contain"
-            >
-            </Image>
+            />
             <Text style={Styles.text}>KH TRAINER</Text>
         </View>
     );
