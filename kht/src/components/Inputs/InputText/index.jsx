@@ -24,15 +24,11 @@ const Input = (props) => {
     Roboto_900Black,
   });
 
-  const onChangeText = (innerText) => {
-    props.onGetInText(innerText);
-  }
 
   return (
     <TextInput
     style={Styles.Bottom}
     secureTextEntry={name}
-    onChangeText={onChangeText}
     placeholder={innerText}
     ></TextInput>
   )

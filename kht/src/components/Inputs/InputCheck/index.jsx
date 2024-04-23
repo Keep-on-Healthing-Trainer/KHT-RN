@@ -30,11 +30,6 @@ const Input = (props) => {
     setText(innerText);
   }, []);
 
-  const onChangeText = (innerText) => {
-    setText(innerText);
-    props.onGetInText(innerText);
-  }
-
   const onDelete = () => {
     setText('');
   }
@@ -43,7 +38,6 @@ const Input = (props) => {
     <View> 
       <TextInput
         style={Styles.Bottom}
-        onChangeText={onChangeText}
         >{text}</TextInput>
         <TouchableOpacity style={Styles.topItem} onPress={onDelete}>
           <Delete></Delete>
