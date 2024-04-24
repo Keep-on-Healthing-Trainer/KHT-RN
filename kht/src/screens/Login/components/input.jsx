@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { color } from "../../../styles/theme";
 import constants from "../../../styles/constants";
 import {
@@ -16,9 +16,18 @@ import InputText from "../../../components/Inputs/InputText";
 import Eyes from "../../../assets/icons/Eyes";
 import CloseEyes from "../../../assets/icons/CloseEyes";
 
-const Input = ({navigation}) => {
+const Input = (props) => {
   const [passwordType, setPasswordType] = useState(false);
   const [loginState, setLoginState] = useState(false);
+  const [loginData, setLoginData] = useState({
+    userId: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    setLoginState(props.name);
+  }, []);
+
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -28,8 +37,13 @@ const Input = ({navigation}) => {
     Roboto_900Black,
   });
 
-  if (!fontsLoaded) {
-    return null;
+  const handleInputChange = (text, field) => {
+    setLoginData(prevData => ({
+      ...prevData,
+      [field]: text
+    }));
+    console.log(loginData);
+    props.onGetInText(loginData);
   }
 
   return (
@@ -37,17 +51,24 @@ const Input = ({navigation}) => {
         <InputText
           innerText="아이디"
           name={false}
+          onGetInText={(text) => handleInputChange(text, "userId")}
         ></InputText>
         <View style={Styles.passwordContainer}>
             <InputText
                 innerText="비밀번호"
                 name={passwordType}
+                onGetInText={(text) => handleInputChange(text, "password")}
             ></InputText>
-            {passwordType ? (
-                <Eyes style={Styles.passwordEyes}></Eyes>
-            ) : (
-                <CloseEyes style={Styles.passwordEyes}></CloseEyes>
-            )}
+            <TouchableOpacity
+              onPress={() => setPasswordType(!passwordType)}
+              style={Styles.passwordEyes}
+            >
+              {passwordType ? (
+                  <Eyes></Eyes>
+              ) : (
+                  <CloseEyes></CloseEyes>
+              )}
+            </TouchableOpacity>
         </View>
         {loginState ? (
             <Text style={Styles.loginStateError}>아이디 또는 비밀번호가 일치하지 않습니다.</Text>

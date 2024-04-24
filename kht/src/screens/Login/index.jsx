@@ -13,10 +13,14 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
+import onLogin from "../../utils/Login";
 import Input from "./components/input";
 import Button from "./components/button";
 
 const Login = ({navigation}) => {
+  const [loginData, setLoginData] = useState();
+  const [loginState, setLoginState] = useState();
+
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -25,6 +29,16 @@ const Login = ({navigation}) => {
     Roboto_700Bold,
     Roboto_900Black,
   });
+
+  onClickLogin = () => {
+    console.log(loginData);
+    onLogin(loginData);
+    navigation.navigate("MainScreen", { screen: 'MainScreen' });
+  }
+
+  onClickSignup = () => {
+    navigation.navigate("SignupTab", { screen: 'SignupTab' });
+  }
 
   return (
     <View style={Styles.container}>
@@ -37,10 +51,10 @@ const Login = ({navigation}) => {
           />
           <Text style={Styles.text}>KH TRAINER</Text>
         </View>
-        <Input />
+        <Input onGetInText={(text) => setLoginData(text)} name={loginState}/>
         <Button
-          onLoginPress={() => navigation.navigate("MainScreen", { screen: 'MainScreen' })}
-          onSignupPress={() => navigation.navigate("SignupTab", { screen: 'SignupTab' })}
+          onLoginPress={() => onClickLogin()}
+          onSignupPress={() => onClickSignup()}
         />
       </View>
     </View>

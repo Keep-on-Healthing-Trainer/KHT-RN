@@ -16,6 +16,8 @@ import CheckBox from "../../../components/CheckBox";
 import ColorBlueButton from "../../../components/Buttons/ColorBlueButton";
 
 const Button = (props) => {
+  const { onLoginPress, onSignupPress } = props;
+  
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -29,10 +31,10 @@ const Button = (props) => {
     <>
         <CheckBox></CheckBox>
         <View style={Styles.buttonContainer}>
-          <ColorBlueButton innerText="로그인" onPress={props.onLoginPress}></ColorBlueButton>
+          <ColorBlueButton innerText="로그인" onPress={onLoginPress}></ColorBlueButton>
           <View style={Styles.textContainer}>
             <Text style={Styles.textLeft}>계정이 없으신가요?</Text>
-            <TouchableOpacity onPress={props.onSignupPress}>
+            <TouchableOpacity onPress={onSignupPress}>
               <Text style={Styles.textRight}>회원가입</Text>
             </TouchableOpacity>
           </View>
