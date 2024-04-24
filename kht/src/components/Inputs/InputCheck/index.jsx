@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from "react";
+import React, { useState, useEffect } from "react";
 import { TextInput, StyleSheet, View, TouchableOpacity } from "react-native";
 
 import { color } from "../../../styles/theme";
@@ -30,6 +30,11 @@ const Input = (props) => {
     setText(innerText);
   }, []);
 
+  const onChangeText = (innerText) => {
+    setText(innerText);
+    props.onGetInText(innerText);
+  }
+
   const onDelete = () => {
     setText('');
   }
@@ -38,6 +43,7 @@ const Input = (props) => {
     <View> 
       <TextInput
         style={Styles.Bottom}
+        onChangeText={onChangeText}
         >{text}</TextInput>
         <TouchableOpacity style={Styles.topItem} onPress={onDelete}>
           <Delete></Delete>

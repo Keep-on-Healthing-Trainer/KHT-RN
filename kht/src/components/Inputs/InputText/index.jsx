@@ -15,6 +15,7 @@ import {
 const Input = (props) => {
   const innerText = props.innerText;
   const name = props.name;
+  
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -24,12 +25,16 @@ const Input = (props) => {
     Roboto_900Black,
   });
 
+  const onChangeText = (innerText) => {
+    props.onGetInText(innerText);
+  }
 
   return (
     <TextInput
     style={Styles.Bottom}
     secureTextEntry={name}
     placeholder={innerText}
+    onChangeText={onChangeText}
     ></TextInput>
   )
 }
