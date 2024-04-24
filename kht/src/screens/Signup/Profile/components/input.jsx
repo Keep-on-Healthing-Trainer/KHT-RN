@@ -16,7 +16,7 @@ import {
 
 import ImageSelect from "../../../../assets/icons/ImageSelect";
 
-const Input = ({navigation}) => {
+const Input = (props) => {
   const [ imageUrl, setImageUrl ] = useState(null);
   const [ status, requestPermission ] = ImagePicker.useMediaLibraryPermissions();
 

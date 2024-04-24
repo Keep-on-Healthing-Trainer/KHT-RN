@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import constants from "../../../../styles/constants";
 import { color } from "../../../../styles/theme";
@@ -17,10 +17,16 @@ import InputText from "../../../../components/Inputs/InputText";
 import Eyes from "../../../../assets/icons/Eyes";
 import CloseEyes from "../../../../assets/icons/CloseEyes";
 
-const Input = ({navigation}) => {
+const Input = (props) => {
   const [passwordType, setPasswordType] = useState(true);
   const [passwordCheckType, setPasswordCheckType] = useState(true);
   const [passwordState, setPasswordState] = useState(false);
+  const [signupData, setSignupData] = useState({
+    userId: "",
+    password: "",
+    userName: "",
+    phoneNumber: "",
+  });
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -31,47 +37,85 @@ const Input = ({navigation}) => {
     Roboto_900Black,
   });
 
+  const handleInputChange = (text, field) => {
+    setSignupData(prevData => ({
+      ...prevData,
+      [field]: text
+    }));
+
+    console.log(signupData);
+  }
+
+  const onPWCheckError = (text) => {
+    if(signupData.password == text) {
+      setPasswordState(false);
+    }
+    else {
+      setPasswordState(true);
+    }
+  }
+
   return (
     <View style={Styles.inputOutContainer}>
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>이름</Text>
-            <InputText 
+            <InputText
+            innerText="이름"
             name={false}
+            onGetInText={(text) => handleInputChange(text, "userName")}
             ></InputText>
         </View>
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>아이디</Text>
             <InputText
+            innerText="아이디"
             name={false}
+            onGetInText={(text) => handleInputChange(text, "userId")}
             ></InputText>
         </View> 
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>전화번호</Text>
             <InputText
+            innerText="전화번호"
             name={false}
+            onGetInText={(text) => handleInputChange(text, "phoneNumber")}
             ></InputText>
         </View>
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>비밀번호</Text>
             <InputText
+            innerText="비밀번호"
             name={passwordType}
+            onGetInText={(text) => handleInputChange(text, "password")}
             ></InputText>
-            {passwordType ? (
-                <Eyes style={Styles.passwordEyes}></Eyes>
-              ) : (
-                <CloseEyes style={Styles.passwordEyes}></CloseEyes>
-            )}
+            <TouchableOpacity
+            style={Styles.passwordEyes}
+            onPress={() => {setPasswordType(!passwordType)}}
+            >
+              {passwordType ? (
+                  <Eyes></Eyes>
+                ) : (
+                  <CloseEyes></CloseEyes>
+              )}
+            </TouchableOpacity>
         </View>
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>비밀번호 확인</Text>
             <InputText
+            innerText="비밀번호 확인"
             name={passwordCheckType}
+            onGetInText={(text) => onPWCheckError(text)}
             ></InputText>
-            {passwordCheckType ? (
-                <Eyes style={Styles.passwordEyes}></Eyes>
-              ) : (
-                <CloseEyes style={Styles.passwordEyes}></CloseEyes>
-            )}
+            <TouchableOpacity
+            style={Styles.passwordEyes}
+            onPress={() => {setPasswordCheckType(!passwordCheckType)}}
+            >
+              {passwordCheckType ? (
+                  <Eyes></Eyes>
+                ) : (
+                  <CloseEyes></CloseEyes>
+              )}
+            </TouchableOpacity>
             {passwordState ? (
               <Text style={Styles.passwordCheckError}>비밀번호 확인이 일치하지 않습니다.</Text>
             ) : (
