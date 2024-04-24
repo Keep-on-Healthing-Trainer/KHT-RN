@@ -14,7 +14,7 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
-const Input = ({route, navigation}) => {
+const Input = (props) => {
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -24,11 +24,11 @@ const Input = ({route, navigation}) => {
     Roboto_900Black,
   });
     
-  const {name} = route.params;
+  const {name} = props.innerText;
 
-  const getValue=(onGetInText)=>{
-    console.log('이름 : ' + onGetInText);
-    setData(onGetInText);
+  const getValue = (onGetInText) => {
+    console.log({name} + " : " + onGetInText);
+    props.onGetInText(onGetInText);
   }
 
   return (

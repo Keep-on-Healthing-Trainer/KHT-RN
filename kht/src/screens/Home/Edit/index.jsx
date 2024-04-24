@@ -14,7 +14,7 @@ const EditNamTab = ({route, navigation}) => {
   return (
     <View style={Styles.container}>
         <BackPage innerText={name} onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })} />
-        <Input />
+        <Input innerText={name}/>
         <Button innerText="저장하기" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })} />
     </View>
   )
