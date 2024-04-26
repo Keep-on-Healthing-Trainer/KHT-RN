@@ -18,6 +18,7 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const ProfileTab = ({navigation}) => {
+  const [ imageUrl, setImageUrl ] = useState(null);
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -32,7 +33,7 @@ const ProfileTab = ({navigation}) => {
     <>
       <View style={Styles.container}>
         <BackHeader innerText="프로필 사진" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></BackHeader>
-        <Center />
+        <Center onGetInUrl={(url) => setImageUrl(url)}/>
         <View style={Styles.button}>
           <Button innerText="수정하기" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></Button>
           <Button innerText="저장하기" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></Button>

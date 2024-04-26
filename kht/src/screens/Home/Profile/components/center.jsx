@@ -49,6 +49,10 @@ const Center = ({navigation}) => {
     setImageUrl(result.assets[0].uri);
   };
 
+  useEffect(() => {
+    props.onGetInUrl(imageUrl);
+  }, [imageUrl]);
+
   return (
     <TouchableOpacity onPress={uploadImage}>
         {imageUrl ? (
