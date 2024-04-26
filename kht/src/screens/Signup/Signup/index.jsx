@@ -12,12 +12,13 @@ import {
   Roboto_700Bold,
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
-
+import onSignup from "../../../utils/Signup";
 import Input from "./components/input";
 import BackPage from "../../../components/header/BackHeader";
 import Button from "../../../components/Buttons/ColorBlueButton";
 
 const SignupTab = ({navigation}) => {
+  const [signupData, setSignupData] = useState();
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -26,11 +27,16 @@ const SignupTab = ({navigation}) => {
     Roboto_700Bold,
     Roboto_900Black,
   });
+  
+  onClickSignup = () => {
+    onSignup(signupData);
+    navigation.navigate("Login", { screen: 'Login' });
+  }
 
   return (
     <View style={Styles.container}>
-      <BackPage innerText="회원가입" onPress={() => navigation.navigate("Login", { screen: 'Login' })} />
-      <Input />
+      <BackPage innerText="회원가입" onPress={() => onClickSignup()} />
+      <Input onGetInText={(text) => setSignupData(text)}/>
       <View style={Styles.buttonContainer}>
         <Button innerText="회원가입" onPress={() => navigation.navigate("ProfileTab", { screen: 'ProfileTab' })} />
       </View>

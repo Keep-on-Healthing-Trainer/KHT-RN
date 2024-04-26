@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import constants from "../../../../styles/constants";
@@ -42,9 +42,12 @@ const Input = (props) => {
       ...prevData,
       [field]: text
     }));
-
-    console.log(signupData);
   }
+
+  useEffect(() => {
+    console.log(signupData);
+    props.onGetInText(signupData);
+  }, [signupData]);
 
   const onPWCheckError = (text) => {
     if(signupData.password == text) {
