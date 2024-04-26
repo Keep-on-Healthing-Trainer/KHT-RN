@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, Image, Pressable, StyleSheet } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 
@@ -51,6 +51,10 @@ const Input = (props) => {
     setImageUrl(result.assets[0].uri);
 
   };
+
+  useEffect(() => {
+    props.onGetInUrl(imageUrl);
+  }, [imageUrl]);
 
   return (
     <>

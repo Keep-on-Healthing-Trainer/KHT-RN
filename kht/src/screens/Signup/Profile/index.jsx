@@ -38,7 +38,7 @@ const ProfileTab = ({navigation}) => {
     <>
       <View style={Styles.container}>
         <SkipHeader innerText="프로필 사진" onPress={() => {navigation.navigate("Login", { screen: 'Login' })}} />
-        <Input />
+        <Input onGetInUrl={(url) => setImageUrl(url)}/>
         <View style={Styles.button}>
           <Button innerText="저장하기" onPress={onPressImage} />
         </View>
