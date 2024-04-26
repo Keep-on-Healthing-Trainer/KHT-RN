@@ -2,7 +2,6 @@ import axios from 'axios';
 import { API_KEY } from "@env";
 
 const onSignup = async ( data ) => {
-    console.log(data);
     // try {
     //     const response = await axios.post(`${API_KEY}/user/signup`, {
     //         "userId" : data.userId,

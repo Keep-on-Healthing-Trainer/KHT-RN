@@ -2,8 +2,6 @@ import axios from 'axios';
 import { API_KEY } from "@env";
 
 const onImage = async ( data ) => {
-    console.log(data);
-
     // const accessToken = '';
 
     // try {
