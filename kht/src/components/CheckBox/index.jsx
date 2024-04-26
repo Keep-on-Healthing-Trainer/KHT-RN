@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 import Check from "../../assets/icons/Check";
@@ -25,17 +25,16 @@ const CheckBox = (props) => {
     Roboto_900Black,
   });
 
-  const onCheck = () => {
-    setLoginSelect(!loginSelect);
+  useEffect(() => {
     props.onGetInPress(loginSelect);
-  }
+  }, [loginSelect]);
 
   return (
-    <TouchableOpacity style={Styles.Bottom} onPress={onCheck}>
+    <TouchableOpacity style={Styles.Bottom} onPress={() => setLoginSelect(!loginSelect)}>
         {loginSelect ? (
-            <View style={Styles.checkbox}></View>
+          <Check></Check>
         ) : (
-            <Check></Check>
+          <View style={Styles.checkbox}></View>
         )}
         <Text style={Styles.text}>자동 로그인</Text>
     </TouchableOpacity>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextInput, StyleSheet } from "react-native";
 import { color } from "../../../styles/theme";
 import constants from '../../../styles/constants';
@@ -15,6 +15,8 @@ import {
 const Input = (props) => {
   const innerText = props.innerText;
   const name = props.name;
+
+  const [ text, setText ] = useState('');
   
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -25,16 +27,16 @@ const Input = (props) => {
     Roboto_900Black,
   });
 
-  const onChangeText = (innerText) => {
-    props.onGetInText(innerText);
-  }
+  useEffect(() => {
+    props.onGetInText(text);
+  }, [text]);
 
   return (
     <TextInput
     style={Styles.Bottom}
     secureTextEntry={name}
     placeholder={innerText}
-    onChangeText={onChangeText}
+    onChangeText={(innerText) => setText(innerText)}
     ></TextInput>
   )
 }

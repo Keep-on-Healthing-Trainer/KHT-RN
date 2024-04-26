@@ -17,6 +17,7 @@ import {
 const BackPage = (props) => {
   const innerText = props.innerText;
   const onPress = props.onPress;
+  
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,

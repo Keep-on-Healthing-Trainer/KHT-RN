@@ -17,6 +17,7 @@ import {
 const Input = (props) => {
   const innerText = props.innerText;
   const [text, setText] = useState('');
+
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -30,10 +31,9 @@ const Input = (props) => {
     setText(innerText);
   }, []);
 
-  const onChangeText = (innerText) => {
-    setText(innerText);
-    props.onGetInText(innerText);
-  }
+  useEffect(() => {
+    props.onGetInText(text);
+  }, [text]);
 
   const onDelete = () => {
     setText('');
@@ -43,7 +43,7 @@ const Input = (props) => {
     <View> 
       <TextInput
         style={Styles.Bottom}
-        onChangeText={onChangeText}
+        onChangeText={(innerText) => setText(innerText)}
         >{text}</TextInput>
         <TouchableOpacity style={Styles.topItem} onPress={onDelete}>
           <Delete></Delete>
