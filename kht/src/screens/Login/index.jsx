@@ -19,6 +19,7 @@ import Button from "./components/button";
 
 const Login = ({navigation}) => {
   const [loginData, setLoginData] = useState();
+  const [ autoLogin, setAutoLogin ] = useState(false);
   const [loginState, setLoginState] = useState();
 
   let [fontsLoaded] = useFonts({
@@ -31,8 +32,10 @@ const Login = ({navigation}) => {
   });
 
   onClickLogin = () => {
-    console.log(loginData);
     onLogin(loginData);
+    if(autoLogin) {
+      console.log('autoLogin이 켜져있습니다.');
+    }
     navigation.navigate("MainScreen", { screen: 'MainScreen' });
   }
 
@@ -53,6 +56,7 @@ const Login = ({navigation}) => {
         </View>
         <Input onGetInText={(text) => setLoginData(text)} name={loginState}/>
         <Button
+          onGetInState={(state) => console.log(state)}
           onLoginPress={() => onClickLogin()}
           onSignupPress={() => onClickSignup()}
         />

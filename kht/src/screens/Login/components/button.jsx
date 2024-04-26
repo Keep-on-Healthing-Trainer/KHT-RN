@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { color } from "../../../styles/theme";
 import constants from "../../../styles/constants";
@@ -17,6 +17,7 @@ import ColorBlueButton from "../../../components/Buttons/ColorBlueButton";
 
 const Button = (props) => {
   const { onLoginPress, onSignupPress } = props;
+  const [ checkBoxState, setCheckBoxState ] = useState(false);
   
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -27,9 +28,13 @@ const Button = (props) => {
     Roboto_900Black,
   });
 
+  useEffect(() => {
+    props.onGetInState(checkBoxState);
+  }, [checkBoxState]);
+
   return (
     <>
-        <CheckBox></CheckBox>
+        <CheckBox onGetInPress={(state) => setCheckBoxState(state)}></CheckBox>
         <View style={Styles.buttonContainer}>
           <ColorBlueButton innerText="로그인" onPress={onLoginPress}></ColorBlueButton>
           <View style={Styles.textContainer}>

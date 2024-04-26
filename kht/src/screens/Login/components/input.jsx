@@ -42,9 +42,11 @@ const Input = (props) => {
       ...prevData,
       [field]: text
     }));
-    console.log(loginData);
-    props.onGetInText(loginData);
   }
+
+  useEffect(() => {
+    props.onGetInText(loginData);
+  }, [loginData]);
 
   return (
     <View style={Styles.inputContainer}>
