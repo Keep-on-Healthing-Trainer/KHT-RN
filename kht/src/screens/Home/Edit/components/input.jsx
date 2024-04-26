@@ -26,17 +26,12 @@ const Input = (props) => {
     
   const {name} = props.innerText;
 
-  const getValue = (onGetInText) => {
-    console.log({name} + " : " + onGetInText);
-    props.onGetInText(onGetInText);
-  }
-
   return (
     <View style={Styles.titleContainer}>
         <Text style={Styles.nameTitle}>{name}</Text>
         <InputCheck
-        innerText="이나경" 
-        onGetInText={getValue}
+        innerText="이나경"
+        onGetInText={(text) => props.onGetInText(text)}
         />
     </View>
   )
