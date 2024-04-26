@@ -42,7 +42,7 @@ const MainHeader = (props) => {
 const Styles = StyleSheet.create({
     container: {
         width: constants.width,
-        height: constants.height/10,
+        height: constants.height/8.5,
         alignItems: 'center',
         flexDirection: 'row',
         paddingTop: constants.height/30
