@@ -113,7 +113,7 @@ const Styles = StyleSheet.create({
   textCount: {
     color: color.Black,
     fontSize: 20,
-    fontFamily: "Roboto_400Regular"
+    fontFamily: "Roboto_700Bold"
   },
   textComment: {
     color: color.Black,
