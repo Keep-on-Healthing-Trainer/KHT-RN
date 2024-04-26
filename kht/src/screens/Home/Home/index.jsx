@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 import MainHeader from "../../../components/header/MainHeader";
@@ -129,6 +129,7 @@ const Styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "Roboto_400Regular",
     color: color.Gray[5],
+    marginTop: 10,
     marginBottom: 10
   },
   IdComment: {
