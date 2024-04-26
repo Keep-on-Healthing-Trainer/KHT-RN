@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import { useIsFocused } from '@react-navigation/native';
 import { Camera } from 'expo-camera';
 
@@ -36,12 +36,12 @@ const Training = ({navigation}) => {
       const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
+    setScanned(false);
   }, []);
   
   if (!isFocused) {
     return null;
   }
-
   if (hasPermission === null) {
     return <View />;
   }
@@ -51,7 +51,7 @@ const Training = ({navigation}) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    Alert.alert('QR코드 스캔에 성공했습니다.');
   };
 
   return (
@@ -64,7 +64,6 @@ const Training = ({navigation}) => {
       >
         <View style={Styles.mainContainer}>
           <View style={Styles.cameraContainer}></View>
-          {scanned && <Text style={Styles.text}>QR 코드 스캔 완료!</Text>}
           <Text style={Styles.traningTypeText}>KHT 기기 화면에 표시된{"\n"}QR을 스캔해주세요</Text>
         </View>
       </Camera>
@@ -79,18 +78,12 @@ const Styles = StyleSheet.create({
     width: constants.width,
     height: constants.height,
   },
-  text: {
-    fontSize: 18,
-    marginTop: 20,
-    fontFamily: "Roboto_400Regular",
-    textAlign: 'center',
-  },
   camera: {
     flex: 1,
   },
   cameraContainer: {
-    width: constants.width/10*7.8,
-    height: constants.height/3.2,
+    width: 300,
+    height: 300,
     borderColor: color.Blue[8],
     borderRadius: 30,
     borderWidth: 5
