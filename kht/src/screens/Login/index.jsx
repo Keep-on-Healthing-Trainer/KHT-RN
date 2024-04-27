@@ -18,9 +18,9 @@ import Input from "./components/input";
 import Button from "./components/button";
 
 const Login = ({navigation}) => {
-  const [loginData, setLoginData] = useState();
+  const [ loginData, setLoginData] = useState();
   const [ autoLogin, setAutoLogin ] = useState(false);
-  const [loginState, setLoginState] = useState();
+  const [ loginState, setLoginState] = useState();
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
