@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import ProfileArrow from "../../../../assets/icons/ProfileArrow";
 import constants from "../../../../styles/constants";
