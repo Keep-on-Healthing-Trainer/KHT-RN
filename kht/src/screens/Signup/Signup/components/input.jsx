@@ -69,14 +69,6 @@ const Input = (props) => {
             ></InputText>
         </View>
         <View style={Styles.inputContainer}>
-            <Text style={Styles.textTitle}>아이디</Text>
-            <InputText
-            innerText="아이디를 입력하세요 (6~15자)"
-            name={false}
-            onGetInText={(text) => handleInputChange(text, "userId")}
-            ></InputText>
-        </View> 
-        <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>전화번호</Text>
             <InputText
             innerText="전화번호를 입력하세요 (ex. 01012345678)"
@@ -84,6 +76,14 @@ const Input = (props) => {
             onGetInText={(text) => handleInputChange(text, "phoneNumber")}
             ></InputText>
         </View>
+        <View style={Styles.inputContainer}>
+            <Text style={Styles.textTitle}>아이디</Text>
+            <InputText
+            innerText="아이디를 입력하세요 (6~15자)"
+            name={false}
+            onGetInText={(text) => handleInputChange(text, "userId")}
+            ></InputText>
+        </View> 
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>비밀번호</Text>
             <InputText
