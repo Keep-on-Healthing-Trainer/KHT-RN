@@ -35,7 +35,6 @@ const ProfileTab = ({navigation}) => {
         <BackHeader innerText="프로필 사진" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></BackHeader>
         <Center onGetInUrl={(url) => setImageUrl(url)}/>
         <View style={Styles.button}>
-          <Button innerText="수정하기" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></Button>
           <Button innerText="저장하기" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></Button>
         </View>
       </View>
@@ -68,7 +67,7 @@ const Styles = StyleSheet.create({
     color: color.Blue[7]
   },
   button: {
-    marginTop: constants.height/5
+    marginTop: constants.height/4
   }
 })
 

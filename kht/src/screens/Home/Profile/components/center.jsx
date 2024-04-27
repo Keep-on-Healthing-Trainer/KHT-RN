@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 
@@ -14,7 +14,7 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
-const Center = ({navigation}) => {
+const Center = (props) => {
   const [ imageUrl, setImageUrl ] = useState('');
   const [ status, requestPermission ] = ImagePicker.useMediaLibraryPermissions();
 
@@ -60,7 +60,7 @@ const Center = ({navigation}) => {
         ) : (
           <Image source={require('../../../../assets/images/ProfileImage.png')} style={Styles.clickImage}></Image>
         )}
-        <Text style={Styles.text}>프로필을 설정하지 않을{"\n"}경우에는 기본 프로필로 설정됩니다.</Text>
+        <Text style={Styles.text}>프로필 사진 변경하기</Text>
     </TouchableOpacity>
   )
 }
