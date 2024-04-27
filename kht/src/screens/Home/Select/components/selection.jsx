@@ -14,8 +14,7 @@ import {
   } from '@expo-google-fonts/roboto';
 
 const Selection = (props) => {
-  console.log(props.onFirstPress);
-  const [profileLink, setProfileLink] = useState(null);
+  const userData = props.userData;
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -30,7 +29,7 @@ const Selection = (props) => {
         <View style={Styles.nameContainer}>
           <View style={Styles.nameDiv}>
             <Text style={Styles.nameTagStyle}>이름</Text>
-            <Text style={Styles.nameStyle}>이나경</Text>
+            <Text style={Styles.nameStyle}>{userData.nickname}</Text>
             <TouchableOpacity
             style={Styles.nameBox}
             onPress={props.onFirstPress}
@@ -40,7 +39,7 @@ const Selection = (props) => {
           </View>
           <View style={Styles.nameDiv}>
             <Text style={Styles.nameTagStyle}>아이디</Text>
-            <Text style={Styles.nameStyle}>mosh</Text>
+            <Text style={Styles.nameStyle}>{userData.userId}</Text>
             <TouchableOpacity
             style={Styles.nameBox}
             onPress={props.onSecondPress}
@@ -50,7 +49,7 @@ const Selection = (props) => {
           </View>
           <View style={Styles.nameDiv}>
             <Text style={Styles.nameTagStyle}>전화번호</Text>
-            <Text style={Styles.nameStyle}>01055558888</Text>
+            <Text style={Styles.nameStyle}>{userData.phoneNumber}</Text>
             <TouchableOpacity
             style={Styles.nameBox}
             onPress={props.onThirdPress}

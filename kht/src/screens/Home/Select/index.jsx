@@ -18,7 +18,13 @@ import {
   } from '@expo-google-fonts/roboto';
 
 const SelectTab = ({navigation}) => {
-  const [profileLink, setProfileLink] = useState(null);
+  const userData = {
+		"nickname" : "이름",
+		"userId" : "아이디",
+		"profileImgeUrl" : null,
+		"totalCounts" : 200,
+    "phoneNumber" : "01055558888"
+  }
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -33,7 +39,7 @@ const SelectTab = ({navigation}) => {
     <View style={Styles.container}>
         <BackPage innerText="프로필 편집" onPress={() => navigation.navigate("HomeTab", { screen: 'HomeTab' })}></BackPage>
         <View style={Styles.profileContainer}>
-            {profileLink ? (
+            {userData.profileImgeUrl ? (
             <></>
             ) : (
             <Profile style={Styles.profile}></Profile>
@@ -43,6 +49,7 @@ const SelectTab = ({navigation}) => {
             </TouchableOpacity>
         </View>
         <Selection
+        userData={userData}
         onFirstPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}
         onSecondPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}
         onThirdPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}
