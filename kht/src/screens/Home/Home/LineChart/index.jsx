@@ -3,8 +3,8 @@ import { View } from "react-native";
 import LineChart from "./LineChart";
 import useXY from './useXY';
 
-const Chart = () => {
-  const data = [1534, 2523, 3457, 6615, 5341, 7650, 8753, 1230, 2023, 5045, 3023, 5000];
+const Chart = (props) => {
+  const data = props.data;
   const [arr] = useXY(data);
 
   return (

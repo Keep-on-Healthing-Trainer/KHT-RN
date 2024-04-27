@@ -27,7 +27,78 @@ const HomeTab = ({navigation}) => {
     Roboto_900Black,
   });
 
-  const [profileLink, setProfileLink] = useState(null);
+  const userData = {
+		"nickname" : "이름",
+		"userId" : "아이디",
+		"profileImgeUrl" : null,
+		"totalCounts" : 200
+  }
+
+  const data = {
+    "totalCounts": 200,
+    "exerciseResponses": [
+      {
+            "id": 1,
+            "count" : 30,
+            "exerciseDate": "04.06"
+      },
+      {
+            "id": 2,
+            "count" : 70,
+            "exerciseDate": "04.07"
+      },
+      {
+            "id": 3,
+            "count" : 100,
+            "exerciseDate": "04.08"
+      },
+      {
+          "id": 4,
+          "count" : 70,
+          "exerciseDate": "04.09"
+      },
+      {
+          "id": 5,
+          "count" : 30,
+          "exerciseDate": "04.06"
+      },
+      {
+          "id": 6,
+          "count" : 70,
+          "exerciseDate": "04.07"
+      },
+      {
+          "id": 7,
+          "count" : 100,
+          "exerciseDate": "04.08"
+      },
+      {
+          "id": 8,
+          "count" : 70,
+          "exerciseDate": "04.09"
+      },
+      {
+          "id": 9,
+          "count" : 70,
+          "exerciseDate": "04.09"
+      },
+      {
+          "id": 10,
+          "count" : 30,
+          "exerciseDate": "04.06"
+      },
+      {
+          "id": 11,
+          "count" : 70,
+          "exerciseDate": "04.07"
+      },
+      {
+          "id": 12,
+          "count" : 100,
+          "exerciseDate": "04.08"
+      }
+    ]
+};
 
   return (
     <View style={Styles.container}>
@@ -39,20 +110,20 @@ const HomeTab = ({navigation}) => {
             <Text style={Styles.editButtonText}>편집</Text>
           </TouchableOpacity>
           <View style={Styles.nameContanier}>
-            <Text style={Styles.IdName}>이나경</Text>
-            <Text style={Styles.IdComment}>누적 윗몸말아올리기 횟수 : 1003</Text>
+            <Text style={Styles.IdName}>{userData.nickname}</Text>
+            <Text style={Styles.IdComment}>누적 윗몸말아올리기 횟수 : {data.totalCounts}</Text>
           </View>
         </View>
-        {profileLink ? (
+        {userData.profileImgeUrl ? (
           <></>
         ) : (
           <Profile style={Styles.profile}></Profile>
         )}
       </View>
       <View style={Styles.dataContainer}>
-        <Text style={Styles.textCount}>총 1003회</Text>
-        <Text style={Styles.textComment}>KHT와 함께 1003회 윗몸일으키기를 진행했어요</Text>
-        <Chart></Chart>
+        <Text style={Styles.textCount}>총 {data.totalCounts}회</Text>
+        <Text style={Styles.textComment}>KHT와 함께 {data.totalCounts}회 윗몸일으키기를 진행했어요</Text>
+        <Chart data={data.exerciseResponses}></Chart>
       </View>
   </View>
   )

@@ -29,7 +29,7 @@ const LineChart = ({ points, data }) => {
               <>
                 <Circle cx={x} cy={y} r="1" style={Styles.circle} key={index}></Circle>
                 <Text x={x} y={100} style={Styles.text} key={index+'00'}>
-                  {data[index]}
+                  {data[index].exerciseDate}
                 </Text>
               </>
             );
