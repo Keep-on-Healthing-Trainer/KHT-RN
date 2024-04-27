@@ -15,6 +15,10 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const Input = (props) => {
+  const {name} = props.innerText;
+  const data = props.data;
+  console.log(data);
+
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -23,14 +27,12 @@ const Input = (props) => {
     Roboto_700Bold,
     Roboto_900Black,
   });
-    
-  const {name} = props.innerText;
 
   return (
     <View style={Styles.titleContainer}>
         <Text style={Styles.nameTitle}>{name}</Text>
         <InputCheck
-        innerText="이나경"
+        innerText={data}
         onGetInText={(text) => props.onGetInText(text)}
         />
     </View>
