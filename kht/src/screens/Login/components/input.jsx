@@ -51,13 +51,13 @@ const Input = (props) => {
   return (
     <View style={Styles.inputContainer}>
         <InputText
-          innerText="아이디"
+          innerText="아이디를 입력하세요"
           name={false}
           onGetInText={(text) => handleInputChange(text, "userId")}
         ></InputText>
         <View style={Styles.passwordContainer}>
             <InputText
-                innerText="비밀번호"
+                innerText="비밀번호를 입력하세요"
                 name={passwordType}
                 onGetInText={(text) => handleInputChange(text, "password")}
             ></InputText>
