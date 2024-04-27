@@ -14,6 +14,8 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const TopRanking = (props) => {
+  const data = props.data;
+
     let [fontsLoaded] = useFonts({
         Roboto_100Thin,
         Roboto_300Light,
@@ -27,21 +29,21 @@ const TopRanking = (props) => {
       <View style={Styles.topRankContainer}>
         <View style={Styles.oneContainer}>
           <Text style={Styles.rankText}>2nd</Text>
-          <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
-          <Text style={Styles.countText}>2000회</Text>
-          <Text style={Styles.nameText}>최유준</Text>
+          <Image source={data[1].profileImgeUrl ? undefined : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+          <Text style={Styles.countText}>{data[1].totalCounts}회</Text>
+          <Text style={Styles.nameText}>{data[1].userName}</Text>
         </View>
         <View style={Styles.oneContainer}>
           <Text style={Styles.oneRankText}>1st</Text>
-          <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
-          <Text style={Styles.countText}>3000회</Text>
-          <Text style={Styles.nameText}>이나경</Text>
+          <Image source={data[0].profileImgeUrl ? undefined : require('../../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
+          <Text style={Styles.countText}>{data[0].totalCounts}회</Text>
+          <Text style={Styles.nameText}>{data[0].userName}</Text>
         </View>
         <View style={Styles.oneContainer}>
           <Text style={Styles.rankText}>3rd</Text>
-          <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
-          <Text style={Styles.countText}>1000회</Text>
-          <Text style={Styles.nameText}>최은빈</Text>
+          <Image source={data[2].profileImgeUrl ? undefined :require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+          <Text style={Styles.countText}>{data[2].totalCounts}회</Text>
+          <Text style={Styles.nameText}>{data[2].userName}</Text>
         </View>
       </View>
   )

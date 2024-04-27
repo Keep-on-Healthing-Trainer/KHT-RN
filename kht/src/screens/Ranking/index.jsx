@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 import constants from "../../styles/constants";
@@ -18,6 +18,68 @@ import TopRanking from "./components/topRanking";
 import BottomRanking from "./components/bottomRanking";
 
 const Ranking = ({navigation}) => {
+  const userData = {
+		"nickname" : "이름",
+		"userId" : "아이디",
+		"profileImgeUrl" : null,
+		"totalCounts" : 200,
+    "phoneNumber" : "01055558888"
+  }
+  const data = {
+    "RankingResponse": [
+        {
+            "userName" : "이름",
+            "totalCounts" : "7000",
+            "profileImgeUrl" : null
+        },
+        {
+            "userName" : "이름",
+            "totalCounts" : "6000",
+            "profileImgeUrl" : null
+        },
+        {
+            "userName" : "이름",
+            "totalCounts" : "5000",
+            "profileImgeUrl" : null
+        }, 
+        {
+            "userName" : "이름",
+            "totalCounts" : "4000",
+            "profileImgeUrl" : null
+        }, 
+	      {
+            "userName" : "이름",
+            "totalCounts" : "4000",
+            "profileImgeUrl" : null
+        }, 
+        {
+            "userName" : "이름",
+            "totalCounts" : "3000",
+            "profileImgeUrl" : null
+        }, 
+        {
+            "userName" : "이름",
+            "totalCounts" : "2000",
+            "profileImgeUrl" : null
+        }, 
+        {
+            "userName" : "이름",
+            "totalCounts" : "1000",
+            "profileImgeUrl" : null
+        }, 
+        {
+            "userName" : "이름",
+            "totalCounts" : "500",
+            "profileImgeUrl" : null
+        }, 
+        {
+            "userName" : "이름",
+            "totalCounts" : "100",
+            "profileImgeUrl" : null
+        }
+    ]
+};
+
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -30,12 +92,12 @@ const Ranking = ({navigation}) => {
   return (
     <View style={Styles.container}>
       <MainHeader />
-      <TopRanking />
-      <BottomRanking />
+      <TopRanking data={data.RankingResponse} />
+      <BottomRanking data={data.RankingResponse} />
       <View style={Styles.myRankingContainer}>
-        <Image source={require('../../assets/images/ProfileImage.png')} style={Styles.myRankingProfile}></Image>
-        <Text style={Styles.myRankingText}>이나경</Text>
-        <Text style={Styles.myRankingText}>3회</Text>
+        <Image source={userData.profileImgeUrl ? undefined : require('../../assets/images/ProfileImage.png')} style={Styles.myRankingProfile}></Image>
+        <Text style={Styles.myRankingText}>{userData.nickname}</Text>
+        <Text style={Styles.myRankingText}>{userData.totalCounts}</Text>
       </View>
     </View>
   )
@@ -51,7 +113,7 @@ const Styles = StyleSheet.create({
   },
   myRankingContainer: {
     width: constants.width,
-    height: constants.height/10,
+    height: constants.height/12,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',

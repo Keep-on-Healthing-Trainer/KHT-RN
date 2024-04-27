@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 import constants from "../../../styles/constants";
@@ -14,52 +14,29 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const BottomRanking = (props) => {
-    let [fontsLoaded] = useFonts({
-        Roboto_100Thin,
-        Roboto_300Light,
-        Roboto_400Regular,
-        Roboto_500Medium,
-        Roboto_700Bold,
-        Roboto_900Black,
-      });
+  const data = props.data;
+
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
 
   return (
     <View style={Styles.rankingContainer}>
-        <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
-        <Text style={Styles.rankingTableText}>제갈집집</Text>
-        <Text style={Styles.rankingTableText}>800회</Text>
-        </View>
-        <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
-        <Text style={Styles.rankingTableText}>제갈집집</Text>
-        <Text style={Styles.rankingTableText}>800회</Text>
-        </View>
-        <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
-        <Text style={Styles.rankingTableText}>제갈집집</Text>
-        <Text style={Styles.rankingTableText}>800회</Text>
-        </View>
-        <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
-        <Text style={Styles.rankingTableText}>제갈집집</Text>
-        <Text style={Styles.rankingTableText}>800회</Text>
-        </View>
-        <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
-        <Text style={Styles.rankingTableText}>제갈집집</Text>
-        <Text style={Styles.rankingTableText}>800회</Text>
-        </View>
-        <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
-        <Text style={Styles.rankingTableText}>제갈집집</Text>
-        <Text style={Styles.rankingTableText}>800회</Text>
-        </View>
-        <View style={Styles.rankingTableContainer}>
-        <Image source={require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
-        <Text style={Styles.rankingTableText}>제갈집집</Text>
-        <Text style={Styles.rankingTableText}>800회</Text>
-        </View>
+      {data.map(({userName, totalCounts, profileImgeUrl}, index) => {
+        if(index < 3) return null
+        return(
+          <View style={Styles.rankingTableContainer}>
+            <Image source={profileImgeUrl ? undefined : require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+            <Text style={Styles.rankingTableText}>{userName}</Text>
+            <Text style={Styles.rankingTableText}>{totalCounts}회</Text>
+          </View>
+        );
+      })}
     </View>
   )
 }
