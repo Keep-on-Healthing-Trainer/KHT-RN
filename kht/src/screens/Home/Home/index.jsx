@@ -5,6 +5,9 @@ import MainHeader from "../../../components/header/MainHeader";
 import Profile from "../../../assets/icons/Profile";
 import Chart from "./LineChart";
 
+import onUser from "../../../utils/User";
+import onRefresh from "../../../utils/Refresh";
+
 import constants from "../../../styles/constants";
 import { color } from "../../../styles/theme";
 import {
@@ -26,6 +29,11 @@ const HomeTab = ({navigation}) => {
     Roboto_700Bold,
     Roboto_900Black,
   });
+
+  useEffect(() => {
+    //onUser();
+    //onRefresh();
+  }, [])
 
   const userData = {
 		"nickname" : "이름",
