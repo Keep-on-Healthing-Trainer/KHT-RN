@@ -3,19 +3,19 @@ import { API_KEY } from "@env";
 
 const onRefresh = async () => {
     
-    // const refreshToken = "";
+    const token = "";
 
-    // try {
-    //     const response = await axios.post(`${API_KEY}/user/refresh`, {
-    //         headers: {
-    //             Refresh-Token: `${refreshToken}`
-    //         }
-    //     });
-    //     console.log("받은 값:", response);
-    //     console.log("재발급에 성공하였습니다.");
-    // } catch (error) {
-    //     console.error("재발급 ERROR :", error);
-    // }
+    try {
+        const response = await axios.post(`${API_KEY}/user/refresh`, "", {
+            headers: {
+              "Refresh-Token": `${token}`,
+            }, 
+          })
+          const accessToken = response.data.accessToken;
+          const refreshToken = response.data.refreshToken;
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 export default onRefresh;
