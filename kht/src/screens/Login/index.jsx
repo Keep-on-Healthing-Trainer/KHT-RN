@@ -32,10 +32,7 @@ const Login = ({navigation}) => {
   });
 
   onClickLogin = () => {
-    onLogin(loginData);
-    if(autoLogin) {
-      console.log('autoLogin이 켜져있습니다.');
-    }
+    onLogin(loginData, autoLogin);
     navigation.navigate("MainScreen", { screen: 'MainScreen' });
   }
 
@@ -56,7 +53,7 @@ const Login = ({navigation}) => {
         </View>
         <Input onGetInText={(text) => setLoginData(text)} name={loginState}/>
         <Button
-          onGetInState={(state) => console.log(state)}
+          onGetInState={(state) => setAutoLogin(state)}
           onLoginPress={() => onClickLogin()}
           onSignupPress={() => onClickSignup()}
         />
