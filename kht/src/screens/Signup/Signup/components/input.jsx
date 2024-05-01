@@ -22,10 +22,10 @@ const Input = (props) => {
   const [passwordCheckType, setPasswordCheckType] = useState(true);
   const [passwordState, setPasswordState] = useState(false);
   const [signupData, setSignupData] = useState({
-    userId: "",
-    password: "",
-    userName: "",
-    phoneNumber: "",
+    userId : "",
+    name : "",
+    phoneNumber : "",
+    password : ""
   });
 
   let [fontsLoaded] = useFonts({

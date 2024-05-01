@@ -30,15 +30,15 @@ const SignupTab = ({navigation}) => {
   
   onClickSignup = () => {
     onSignup(signupData);
-    navigation.navigate("Login", { screen: 'Login' });
+    navigation.navigate("ProfileTab", { screen: 'ProfileTab' });
   }
 
   return (
     <View style={Styles.container}>
-      <BackPage innerText="회원가입" onPress={() => onClickSignup()} />
+      <BackPage innerText="회원가입" onPress={() => navigation.navigate("Login", { screen: 'Login' })} />
       <Input onGetInText={(text) => setSignupData(text)}/>
       <View style={Styles.buttonContainer}>
-        <Button innerText="회원가입" onPress={() => navigation.navigate("ProfileTab", { screen: 'ProfileTab' })} />
+        <Button innerText="회원가입" onPress={() => onClickSignup()} />
       </View>
     </View>
   )
