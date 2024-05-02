@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo-google-fonts/roboto": "^0.2.3",
     "@expo/vector-icons": "^14.0.0",
+    "@react-native-async-storage/async-storage": "1.21.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-masked-view/masked-view": "0.3.0",
     "@react-navigation/bottom-tabs": "^6.5.20",
@@ -37,6 +38,7 @@
     "react-native-chart-kit": "^6.12.0",
     "react-native-debounce-input": "^1.0.5",
     "react-native-dotenv": "^3.4.11",
+    "react-native-encrypted-storage": "^4.0.3",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-image-picker": "^7.1.2",
     "react-native-linear-gradient": "^2.8.3",
@@ -50,8 +52,7 @@
     "react-native-tab-view": "^3.5.2",
     "react-native-text-gradient": "^0.1.7",
     "react-redux": "^9.1.0",
-    "redux": "^5.0.1",
-    "@react-native-async-storage/async-storage": "1.21.0"
+    "redux": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

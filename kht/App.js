@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Loading from './src/screens/Loading';
@@ -24,7 +24,7 @@ export default class extends React.Component{
 
       return (
         <NavigationContainer>
-          <UserScreen/>
+          <UserScreen />
         </NavigationContainer>
       );
     }
