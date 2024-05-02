@@ -12,7 +12,7 @@ import {
   Roboto_700Bold,
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
-import onSignup from "../../../utils/Signup";
+import onSignup from "../../../utils/fucntion/Signup";
 import Input from "./components/input";
 import BackPage from "../../../components/header/BackHeader";
 import Button from "../../../components/Buttons/ColorBlueButton";

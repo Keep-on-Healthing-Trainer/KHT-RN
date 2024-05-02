@@ -14,7 +14,7 @@ import {
 } from '@expo-google-fonts/roboto';
 
 import Input from "./components/input";
-import onImage from '../../../utils/Image';
+import onImage from '../../../utils/fucntion/Image';
 import SkipHeader from "../../../components/header/SkipHeader";
 import Button from "../../../components/Buttons/BorderBlueButton";
 

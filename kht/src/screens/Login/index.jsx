@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Alert } from "react-native";
 
 import { color } from "../../styles/theme";
 import constants from "../../styles/constants";
@@ -13,14 +13,13 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
-import onLogin from "../../utils/Login";
+import onLogin from "../../utils/fucntion/Login";
 import Input from "./components/input";
 import Button from "./components/button";
 
 const Login = ({navigation}) => {
   const [ loginData, setLoginData] = useState();
   const [ autoLogin, setAutoLogin ] = useState(false);
-  const [ loginState, setLoginState] = useState();
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -33,7 +32,7 @@ const Login = ({navigation}) => {
 
   onClickLogin = () => {
     onLogin(loginData, autoLogin);
-    navigation.navigate("MainScreen", { screen: 'MainScreen' });
+    //navigation.navigate("MainScreen", { screen: 'MainScreen' });
   }
 
   onClickSignup = () => {
@@ -51,7 +50,7 @@ const Login = ({navigation}) => {
           />
           <Text style={Styles.text}>KH TRAINER</Text>
         </View>
-        <Input onGetInText={(text) => setLoginData(text)} name={loginState}/>
+        <Input onGetInText={(text) => setLoginData(text)}/>
         <Button
           onGetInState={(state) => setAutoLogin(state)}
           onLoginPress={() => onClickLogin()}

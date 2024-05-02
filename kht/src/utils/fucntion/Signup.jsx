@@ -13,7 +13,13 @@ const onSignup = async ( data ) => {
             console.log("회원가입에 성공하였습니다.");
         }
     } catch (error) {
-        console.error("회원가입 ERROR :", error);
+        if(error.response.status == 400) {
+            Alert.alert('비밀번호가 일치하지 않습니다.');
+        } else if(error.response.status == 404) {
+            Alert.alert('아이디를 찾을 수 없습니다.');
+        } else {
+            Alert.alert('로그인 오류입니다.');
+        }
     }
 };
 
