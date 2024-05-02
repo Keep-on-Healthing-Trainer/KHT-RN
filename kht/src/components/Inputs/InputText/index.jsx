@@ -12,11 +12,10 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
-const Input = (props) => {
-  const innerText = props.innerText;
-  const name = props.name;
-
+const Input = ( props ) => {
   const [ text, setText ] = useState('');
+  const [ secure, setSecure ] = useState(true);
+  const [ innerText, setInnerText ] = useState('');
   
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -28,15 +27,20 @@ const Input = (props) => {
   });
 
   useEffect(() => {
+    setInnerText(props.innerText);
+    setSecure(props.secure);
+  }, []);
+
+  useEffect(() => {
     props.onGetInText(text);
   }, [text]);
 
   return (
     <TextInput
     style={Styles.Bottom}
-    secureTextEntry={name}
+    secureTextEntry={secure}
     placeholder={innerText}
-    onChangeText={(innerText) => setText(innerText)}
+    onChangeText={ (innerText) => setText(innerText) }
     ></TextInput>
   )
 }

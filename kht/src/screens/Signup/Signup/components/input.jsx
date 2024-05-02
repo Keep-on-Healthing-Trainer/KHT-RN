@@ -64,7 +64,7 @@ const Input = (props) => {
             <Text style={Styles.textTitle}>이름</Text>
             <InputText
             innerText="이름을 입력하세요"
-            name={false}
+            secure={false}
             onGetInText={(text) => handleInputChange(text, "userName")}
             ></InputText>
         </View>
@@ -72,7 +72,7 @@ const Input = (props) => {
             <Text style={Styles.textTitle}>전화번호</Text>
             <InputText
             innerText="전화번호를 입력하세요 (ex. 01012345678)"
-            name={false}
+            secure={false}
             onGetInText={(text) => handleInputChange(text, "phoneNumber")}
             ></InputText>
         </View>
@@ -80,7 +80,7 @@ const Input = (props) => {
             <Text style={Styles.textTitle}>아이디</Text>
             <InputText
             innerText="아이디를 입력하세요 (6~15자)"
-            name={false}
+            secure={false}
             onGetInText={(text) => handleInputChange(text, "userId")}
             ></InputText>
         </View> 
@@ -88,7 +88,7 @@ const Input = (props) => {
             <Text style={Styles.textTitle}>비밀번호</Text>
             <InputText
             innerText="비밀번호를 입력하세요 (6~20자)"
-            name={passwordType}
+            secure={passwordType}
             onGetInText={(text) => handleInputChange(text, "password")}
             ></InputText>
             <TouchableOpacity
@@ -106,7 +106,7 @@ const Input = (props) => {
             <Text style={Styles.textTitle}>비밀번호 확인</Text>
             <InputText
             innerText="비밀번호 확인을 입력하세요"
-            name={passwordCheckType}
+            secure={passwordCheckType}
             onGetInText={(text) => onPWCheckError(text)}
             ></InputText>
             <TouchableOpacity

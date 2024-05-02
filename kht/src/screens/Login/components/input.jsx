@@ -17,16 +17,11 @@ import Eyes from "../../../assets/icons/Eyes";
 import CloseEyes from "../../../assets/icons/CloseEyes";
 
 const Input = (props) => {
-  const [passwordType, setPasswordType] = useState(false);
-  const [loginState, setLoginState] = useState(false);
+  const [passwordType, setPasswordType] = useState(true);
   const [loginData, setLoginData] = useState({
     userId: "",
     password: "",
   });
-
-  useEffect(() => {
-    setLoginState(props.name);
-  }, []);
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -52,13 +47,13 @@ const Input = (props) => {
     <View style={Styles.inputContainer}>
         <InputText
           innerText="아이디를 입력하세요"
-          name={false}
+          secure={false}
           onGetInText={(text) => handleInputChange(text, "userId")}
         ></InputText>
         <View style={Styles.passwordContainer}>
             <InputText
                 innerText="비밀번호를 입력하세요"
-                name={passwordType}
+                secure={passwordType}
                 onGetInText={(text) => handleInputChange(text, "password")}
             ></InputText>
             <TouchableOpacity
@@ -72,11 +67,6 @@ const Input = (props) => {
               )}
             </TouchableOpacity>
         </View>
-        {loginState ? (
-            <Text style={Styles.loginStateError}>아이디 또는 비밀번호가 일치하지 않습니다.</Text>
-        ) : (
-            <></>
-        )}
     </View>
   )
 }
