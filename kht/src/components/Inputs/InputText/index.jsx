@@ -14,7 +14,7 @@ import {
 
 const Input = ( props ) => {
   const [ text, setText ] = useState('');
-  const [ secure, setSecure ] = useState(true);
+  const [ secure, setSecure ] = useState(false);
   const [ innerText, setInnerText ] = useState('');
   
   let [fontsLoaded] = useFonts({
@@ -29,7 +29,7 @@ const Input = ( props ) => {
   useEffect(() => {
     setInnerText(props.innerText);
     setSecure(props.secure);
-  }, []);
+  }, [props]);
 
   useEffect(() => {
     props.onGetInText(text);
