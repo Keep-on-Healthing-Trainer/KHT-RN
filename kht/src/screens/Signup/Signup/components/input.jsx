@@ -45,7 +45,6 @@ const Input = (props) => {
   }
 
   useEffect(() => {
-    console.log(signupData);
     props.onGetInText(signupData);
   }, [signupData]);
 
@@ -65,7 +64,7 @@ const Input = (props) => {
             <InputText
             innerText="이름을 입력하세요"
             secure={false}
-            onGetInText={(text) => handleInputChange(text, "userName")}
+            onGetInText={(text) => handleInputChange(text, "name")}
             ></InputText>
         </View>
         <View style={Styles.inputContainer}>
@@ -87,7 +86,7 @@ const Input = (props) => {
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>비밀번호</Text>
             <InputText
-            innerText="비밀번호를 입력하세요 (6~20자)"
+            innerText="비밀번호를 입력하세요 (8~20자)"
             secure={passwordType}
             onGetInText={(text) => handleInputChange(text, "password")}
             ></InputText>
@@ -105,6 +104,7 @@ const Input = (props) => {
         <View style={Styles.inputContainer}>
             <Text style={Styles.textTitle}>비밀번호 확인</Text>
             <InputText
+            maxLength='20'
             innerText="비밀번호 확인을 입력하세요"
             secure={passwordCheckType}
             onGetInText={(text) => onPWCheckError(text)}
