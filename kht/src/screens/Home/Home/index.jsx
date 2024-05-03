@@ -5,6 +5,9 @@ import MainHeader from "../../../components/header/MainHeader";
 import Profile from "../../../assets/icons/Profile";
 import Chart from "./LineChart";
 
+import onChart from "../../../utils/fucntion/Chart";
+import onUser from "../../../utils/fucntion/User";
+
 import constants from "../../../styles/constants";
 import { color } from "../../../styles/theme";
 import {
@@ -18,6 +21,8 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const HomeTab = ({navigation}) => {
+  const [ userData, setUserData ] = useState();
+  const [ data, setData ] = useState();
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -27,78 +32,25 @@ const HomeTab = ({navigation}) => {
     Roboto_900Black,
   });
 
-  const userData = {
-		"nickname" : "이름",
-		"userId" : "아이디",
-		"profileImgeUrl" : null,
-		"totalCounts" : 200
-  }
-
-  const data = {
-    "totalCounts": 200,
-    "exerciseResponses": [
-      {
-            "id": 1,
-            "count" : 30,
-            "exerciseDate": "04.06"
-      },
-      {
-            "id": 2,
-            "count" : 70,
-            "exerciseDate": "04.07"
-      },
-      {
-            "id": 3,
-            "count" : 100,
-            "exerciseDate": "04.08"
-      },
-      {
-          "id": 4,
-          "count" : 70,
-          "exerciseDate": "04.09"
-      },
-      {
-          "id": 5,
-          "count" : 30,
-          "exerciseDate": "04.06"
-      },
-      {
-          "id": 6,
-          "count" : 70,
-          "exerciseDate": "04.07"
-      },
-      {
-          "id": 7,
-          "count" : 100,
-          "exerciseDate": "04.08"
-      },
-      {
-          "id": 8,
-          "count" : 70,
-          "exerciseDate": "04.09"
-      },
-      {
-          "id": 9,
-          "count" : 70,
-          "exerciseDate": "04.09"
-      },
-      {
-          "id": 10,
-          "count" : 30,
-          "exerciseDate": "04.06"
-      },
-      {
-          "id": 11,
-          "count" : 70,
-          "exerciseDate": "04.07"
-      },
-      {
-          "id": 12,
-          "count" : 100,
-          "exerciseDate": "04.08"
+  useEffect(async () => {
+    try {
+      const user = await onUser();
+      if (user) {
+        setUserData(user);
       }
-    ]
-};
+    } catch (error) {
+      console.log("유저 정보 가져오기 오류");
+    }
+
+    try {
+      const chart = await onChart();
+      if (chart) {
+        setData(chart);
+      }
+    } catch (error) {
+      console.log("그래프 정보 가져오기 오류");
+    }
+  }, [])
 
   return (
     <View style={Styles.container}>

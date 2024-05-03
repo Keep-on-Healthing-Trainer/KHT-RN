@@ -30,9 +30,15 @@ const Login = ({navigation}) => {
     Roboto_900Black,
   });
 
-  onClickLogin = () => {
-    onLogin(loginData, autoLogin);
-    //navigation.navigate("MainScreen", { screen: 'MainScreen' });
+  onClickLogin = async () => {
+    try {
+      const loginState = await onLogin(loginData, autoLogin);
+      if (loginState) {
+        navigation.navigate("MainScreen", { screen: 'MainScreen' });
+      }
+    } catch (error) {
+      console.log("로그인 오류");
+    }
   }
 
   onClickSignup = () => {

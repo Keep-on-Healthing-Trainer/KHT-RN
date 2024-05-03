@@ -18,8 +18,10 @@ import onImage from '../../../utils/fucntion/Image';
 import SkipHeader from "../../../components/header/SkipHeader";
 import Button from "../../../components/Buttons/BorderBlueButton";
 
-const ProfileTab = ({navigation}) => {
+const ProfileTab = ({navigation, route}) => {
   const [ imageUrl, setImageUrl ] = useState(null);
+  const name = route.params.name;
+
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -29,9 +31,15 @@ const ProfileTab = ({navigation}) => {
     Roboto_900Black,
   });
 
-  const onPressImage = () => {
-    onImage(imageUrl);
-    navigation.navigate("Login", { screen: 'Login' });
+  const onPressImage = async () => {
+    try {
+      const imageStatus = await onImage(imageUrl, name);
+      if (imageStatus) {
+        navigation.navigate("Login", { screen: 'Login' });
+      }
+    } catch (error) {
+      console.log("이미지 업로드 오류");
+    }
   }
 
   return (
