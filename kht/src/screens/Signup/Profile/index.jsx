@@ -19,7 +19,7 @@ import SkipHeader from "../../../components/header/SkipHeader";
 import Button from "../../../components/Buttons/BorderBlueButton";
 
 const ProfileTab = ({navigation, route}) => {
-  const [ imageUrl, setImageUrl ] = useState(null);
+  const [ imageUrl, setImageUrl ] = useState();
   const name = route.params.name;
 
   let [fontsLoaded] = useFonts({
@@ -38,7 +38,7 @@ const ProfileTab = ({navigation, route}) => {
         navigation.navigate("Login", { screen: 'Login' });
       }
     } catch (error) {
-      console.log("이미지 업로드 오류");
+      //console.log("이미지 업로드 오류");
     }
   }
 
