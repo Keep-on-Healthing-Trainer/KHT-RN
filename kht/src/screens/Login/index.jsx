@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
     Roboto_900Black,
   });
 
-  onClickLogin = async () => {
+  const onClickLogin = async () => {
     try {
       const loginState = await onLogin(loginData, autoLogin);
       if (loginState) {
@@ -41,7 +41,7 @@ const Login = ({navigation}) => {
     }
   }
 
-  onClickSignup = () => {
+  const onClickSignup = () => {
     navigation.navigate("SignupTab", { screen: 'SignupTab' });
   }
 

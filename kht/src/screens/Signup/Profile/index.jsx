@@ -38,7 +38,7 @@ const ProfileTab = ({navigation, route}) => {
         navigation.navigate("Login", { screen: 'Login' });
       }
     } catch (error) {
-      //console.log("이미지 업로드 오류");
+      console.log("이미지 업로드 오류");
     }
   }
 
