@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { API_KEY } from "@env";
 import { Alert } from 'react-native';
+import * as SecureStore from "expo-secure-store";
 
 const onChart = async () => {
-    const token = '';
+    const result = await SecureStore.getItemAsync('token')
+    const token = result && JSON.parse(result);
 
     try {
         const response = await axios.get(`${API_KEY}/exercise/user?page=0&size=12`, {
@@ -14,7 +16,6 @@ const onChart = async () => {
 
         if(response.status == 200) {
             console.log("그래프 정보 가져오기에 성공하였습니다.");
-            console.log(response.data);
             return response.data;
         }
     } catch (error) {

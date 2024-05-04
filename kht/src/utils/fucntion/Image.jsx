@@ -7,7 +7,7 @@ const onImage = async ( data, id ) => {
     formData.append("image", data);
 
     try {
-        const response = await axios.post(`${API_KEY}/user/user/modifyProfile/${id}`, formData, {
+        const response = await axios.post(`${API_KEY}/user/modifyProfile/${id}`, formData, {
             headers: {
                 "Content-Type": `multipart/form-data`,
               }
