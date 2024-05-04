@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { WithLocalSvg } from 'react-native-svg';
 
 import MainHeader from "../../../components/header/MainHeader";
 import Profile from "../../../assets/icons/Profile";
@@ -21,8 +22,18 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const HomeTab = ({navigation}) => {
-  const [ userData, setUserData ] = useState();
-  const [ data, setData ] = useState();
+  const [ userData, setUserData ] = useState({});
+  const [ data, setData ] = useState({
+    "totalCounts": 200,
+    "exerciseResponses": [
+        {
+            id: 0,
+            count: 0,
+            exerciseDate: "00.00"
+        }
+    ]
+  });
+
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
     Roboto_300Light,
@@ -32,25 +43,32 @@ const HomeTab = ({navigation}) => {
     Roboto_900Black,
   });
 
-  useEffect(async () => {
+  useEffect(() => {
+    onGetUserData();
+    onGetChartData();
+  }, []);
+
+  useEffect(() => {
+    console.log(userData);
+  }, [userData])
+
+  const onGetUserData = async () => {
     try {
       const user = await onUser();
-      if (user) {
-        setUserData(user);
-      }
+      setUserData(user);
     } catch (error) {
       console.log("유저 정보 가져오기 오류");
     }
+  }
 
+  const onGetChartData = async () => {
     try {
       const chart = await onChart();
-      if (chart) {
-        setData(chart);
-      }
+      setData(chart);
     } catch (error) {
       console.log("그래프 정보 가져오기 오류");
     }
-  }, [])
+  }
 
   return (
     <View style={Styles.container}>
@@ -62,12 +80,12 @@ const HomeTab = ({navigation}) => {
             <Text style={Styles.editButtonText}>편집</Text>
           </TouchableOpacity>
           <View style={Styles.nameContanier}>
-            <Text style={Styles.IdName}>{userData.nickname}</Text>
+            <Text style={Styles.IdName}>{userData.name}</Text>
             <Text style={Styles.IdComment}>누적 윗몸말아올리기 횟수 : {data.totalCounts}</Text>
           </View>
         </View>
         {userData.profileImgeUrl ? (
-          <></>
+          <WithLocalSvg asset={userData.profileImgeUrl} style={Styles.clickImage}></WithLocalSvg>
         ) : (
           <Profile style={Styles.profile}></Profile>
         )}
