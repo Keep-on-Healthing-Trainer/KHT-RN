@@ -12,7 +12,7 @@ import {
     Roboto_900Black,
   } from '@expo-google-fonts/roboto';
 
-const Login = ({navigation}) => {
+const Loading = ({navigation}) => {
     let [fontsLoaded] = useFonts({
         Roboto_100Thin,
         Roboto_300Light,
@@ -58,4 +58,4 @@ const Styles = StyleSheet.create({
     }
 })
 
-export default Login;
+export default Loading;

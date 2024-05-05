@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -41,7 +41,7 @@ const MainScreen = () => {
     });
 
     useEffect(() => {
-      navigation.navigate("HomeScreen", { screen: 'HomeScreen' });
+      navigation.navigate("HomeScreen", { screen: 'HomeScreen'});
     }, []);
 
     return (

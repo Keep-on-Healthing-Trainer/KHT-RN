@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { WithLocalSvg } from 'react-native-svg';
+import { WithLocalSvg } from 'react-native-svg/css';
 
 import MainHeader from "../../../components/header/MainHeader";
 import Profile from "../../../assets/icons/Profile";
@@ -22,17 +22,8 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const HomeTab = ({navigation}) => {
-  const [ userData, setUserData ] = useState({});
-  const [ data, setData ] = useState({
-    "totalCounts": 200,
-    "exerciseResponses": [
-        {
-            id: 0,
-            count: 0,
-            exerciseDate: "00.00"
-        }
-    ]
-  });
+  const [ data, setData ] = useState({});
+  const [ userData, setUserData ]= useState({});
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -44,29 +35,17 @@ const HomeTab = ({navigation}) => {
   });
 
   useEffect(() => {
-    onGetUserData();
-    onGetChartData();
+    onGetData();
   }, []);
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData])
-
-  const onGetUserData = async () => {
+  const onGetData = async () => {
     try {
       const user = await onUser();
-      setUserData(user);
-    } catch (error) {
-      console.log("유저 정보 가져오기 오류");
-    }
-  }
-
-  const onGetChartData = async () => {
-    try {
       const chart = await onChart();
+      setUserData(user);
       setData(chart);
     } catch (error) {
-      console.log("그래프 정보 가져오기 오류");
+      console.log("정보 가져오기 오류");
     }
   }
 
@@ -84,8 +63,8 @@ const HomeTab = ({navigation}) => {
             <Text style={Styles.IdComment}>누적 윗몸말아올리기 횟수 : {data.totalCounts}</Text>
           </View>
         </View>
-        {userData.profileImgeUrl ? (
-          <WithLocalSvg asset={userData.profileImgeUrl} style={Styles.clickImage}></WithLocalSvg>
+        {userData.profileImageUrl ? (
+          <WithLocalSvg width={100} height={100} asset={userData.profileImageUrl} style={Styles.profile}></WithLocalSvg>
         ) : (
           <Profile style={Styles.profile}></Profile>
         )}
