@@ -14,8 +14,8 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
-const Center = (props) => {
-  const [ imageUrl, setImageUrl ] = useState('');
+const Center = ( props ) => {
+  const [ imageUrl, setImageUrl ] = useState();
   const [ status, requestPermission ] = ImagePicker.useMediaLibraryPermissions();
 
   let [fontsLoaded] = useFonts({
@@ -26,6 +26,10 @@ const Center = (props) => {
     Roboto_700Bold,
     Roboto_900Black,
   });
+
+  useEffect(() => {
+    setImageUrl(props.data);
+  }, [props.data])
 
   const uploadImage = async () => {
     if(!status?.granted) {

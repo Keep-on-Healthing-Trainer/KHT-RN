@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet } from "react-native";
-import * as ImagePicker from 'expo-image-picker';
 
 import Center from "./components/center";
 import BackHeader from "../../../components/header/BackHeader";
@@ -17,8 +16,11 @@ import {
   Roboto_900Black,
 } from '@expo-google-fonts/roboto';
 
+import onUser from "../../../utils/fucntion/User";
+
 const ProfileTab = ({navigation}) => {
-  const [ imageUrl, setImageUrl ] = useState(null);
+  const [ imageUrl, setImageUrl ] = useState();
+  const [ userData, setUserData ]= useState({});
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -29,13 +31,41 @@ const ProfileTab = ({navigation}) => {
     Roboto_900Black,
   });
 
+  useEffect(() => {
+    onGetUserData();
+  }, []);
+
+  const onGetUserData = async () => {
+    try {
+      const user = await onUser();
+      setUserData(user);
+    } catch (error) {
+      console.log("유저 정보 가져오기 오류");
+    }
+  }
+
+  useEffect(() => {
+    setImageUrl(userData.profileImgeUrl)
+  }, [userData]);
+
+  const onPressImage = async () => {
+    try {
+      const imageStatus = await onImage(imageUrl, userData.name);
+      if (imageStatus) {
+        navigation.navigate("SelectTab", { screen: 'SelectTab' });
+      }
+    } catch (error) {
+      console.log("이미지 업로드 오류");
+    }
+  }
+
   return (
     <>
       <View style={Styles.container}>
         <BackHeader innerText="프로필 사진" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></BackHeader>
-        <Center onGetInUrl={(url) => setImageUrl(url)}/>
+        <Center onGetInUrl={(url) => setImageUrl(url)} data={imageUrl}/>
         <View style={Styles.button}>
-          <Button innerText="저장하기" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}></Button>
+          <Button innerText="저장하기" onPress={() => onPressImage()}></Button>
         </View>
       </View>
     </>
