@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 
-import Profile from "../../../assets/icons/Profile";
 import BackPage from "../../../components/header/BackHeader";
 import Selection from "./components/selection";
 
@@ -48,7 +47,7 @@ const SelectTab = ({navigation}) => {
     <View style={Styles.container}>
         <BackPage innerText="프로필 편집" onPress={() => navigation.navigate("HomeTab", { screen: 'HomeTab' })}></BackPage>
         <View style={Styles.profileContainer}>
-            <Image source={{uri: userData.profileImgeUrl}} style={Styles.profile}></Image>
+            <Image source={userData.profileImgeUrl ? {uri: userData.profileImgeUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.profile}></Image>
             <TouchableOpacity onPress={() => navigation.navigate("ProfileTab", { screen: 'ProfileTab' })}>
                 <Text style={Styles.profileText}>프로필 사진 수정</Text>
             </TouchableOpacity>

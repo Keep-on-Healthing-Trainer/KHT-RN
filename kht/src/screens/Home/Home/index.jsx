@@ -70,7 +70,7 @@ const HomeTab = ({navigation}) => {
             <Text style={Styles.IdComment}>누적 윗몸말아올리기 횟수 : {data.totalCounts}</Text>
           </View>
         </View>
-        <Image source={{uri: userData.profileImgeUrl}} style={Styles.profile}></Image>
+        <Image source={userData.profileImgeUrl ? {uri: userData.profileImgeUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.profile}></Image>
       </View>
       <View style={Styles.dataContainer}>
         <Text style={Styles.textCount}>총 {data.totalCounts}회</Text>
