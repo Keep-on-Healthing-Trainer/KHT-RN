@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 
 import Profile from "../../../assets/icons/Profile";
 import BackPage from "../../../components/header/BackHeader";
@@ -17,14 +17,10 @@ import {
     Roboto_900Black,
   } from '@expo-google-fonts/roboto';
 
+import onUser from "../../../utils/fucntion/User";
+
 const SelectTab = ({navigation}) => {
-  const userData = {
-		"nickname" : "이름",
-		"userId" : "아이디",
-		"profileImgeUrl" : null,
-		"totalCounts" : 200,
-    "phoneNumber" : "01055558888"
-  }
+  const [ userData, setUserData ]= useState({});
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -35,24 +31,33 @@ const SelectTab = ({navigation}) => {
     Roboto_900Black,
   });
 
+  useEffect(() => {
+    onGetUserData();
+  }, []);
+
+  const onGetUserData = async () => {
+    try {
+      const user = await onUser();
+      setUserData(user);
+    } catch (error) {
+      console.log("유저 정보 가져오기 오류");
+    }
+  }
+
   return (
     <View style={Styles.container}>
         <BackPage innerText="프로필 편집" onPress={() => navigation.navigate("HomeTab", { screen: 'HomeTab' })}></BackPage>
         <View style={Styles.profileContainer}>
-            {userData.profileImgeUrl ? (
-            <></>
-            ) : (
-            <Profile style={Styles.profile}></Profile>
-            )}
+            <Image source={{uri: userData.profileImgeUrl}} style={Styles.profile}></Image>
             <TouchableOpacity onPress={() => navigation.navigate("ProfileTab", { screen: 'ProfileTab' })}>
                 <Text style={Styles.profileText}>프로필 사진 수정</Text>
             </TouchableOpacity>
         </View>
         <Selection
         userData={userData}
-        onFirstPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름' })}
-        onSecondPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디' })}
-        onThirdPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호' })}
+        onFirstPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 이름', type: userData.name })}
+        onSecondPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 아이디', type: userData.userId })}
+        onThirdPress={() => navigation.navigate("EditTab", { screen: 'EditTab', name: '사용자 전화번호', type: userData.phoneNumber })}
         />
     </View>
   )

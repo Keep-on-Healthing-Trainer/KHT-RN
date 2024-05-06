@@ -29,7 +29,7 @@ const Selection = (props) => {
         <View style={Styles.nameContainer}>
           <View style={Styles.nameDiv}>
             <Text style={Styles.nameTagStyle}>이름</Text>
-            <Text style={Styles.nameStyle}>{userData.nickname}</Text>
+            <Text style={Styles.nameStyle}>{userData.name}</Text>
             <TouchableOpacity
             style={Styles.nameBox}
             onPress={props.onFirstPress}
