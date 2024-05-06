@@ -15,7 +15,6 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const Input = (props) => {
-  const innerText = props.innerText;
   const [text, setText] = useState('');
 
   let [fontsLoaded] = useFonts({
@@ -28,7 +27,7 @@ const Input = (props) => {
   });
 
   useEffect(() => {
-    setText(innerText);
+    setText(props.data);
   }, []);
 
   useEffect(() => {
@@ -61,7 +60,7 @@ const Styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         fontSize: 16,
-        fontFamily: "Roboto_500Medium",
+        fontFamily: "Roboto_400Regular",
         color: color.Black,
         borderBottomColor: color.Gray[4],
         borderBottomWidth: 1

@@ -8,23 +8,21 @@ import BackPage from "../../../components/header/BackHeader";
 import Button from "../../../components/Buttons/BorderBlueButton";
 import Input from "./components/input";
 
-const EditNamTab = ({route, navigation}) => {
-  const { name } = route.params;
+const EditNamTab = ({navigation, route}) => {
+  const name = route.params.name;
+  const type = route.params.type;
   const [ text, setText ]= useState('');
 
-  const userData = {
-		"nickname" : "이름",
-		"userId" : "아이디",
-		"profileImgeUrl" : null,
-		"totalCounts" : 200,
-    "phoneNumber" : "01055558888"
-  }
+  const onChangeData = () => {
+    console.log(text);
+    navigation.navigate("SelectTab", { screen: 'SelectTab' })
+  };
 
   return (
     <View style={Styles.container}>
         <BackPage innerText={name} onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })} />
-        <Input data={name=="사용자 이름" ? userData.nickname : (name=="사용자 아이디" ? userData.userId : userData.phoneNumber)} innerText={name} onGetInText={(text) => setText(text)}/>
-        <Button innerText="저장하기" onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })} />
+        <Input data={type} name={name} onGetInText={(text) => setText(text)}/>
+        <Button innerText="저장하기" onPress={() => onChangeData()} />
     </View>
   )
 }
