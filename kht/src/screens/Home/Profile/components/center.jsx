@@ -59,7 +59,7 @@ const Center = ( props ) => {
 
   return (
     <TouchableOpacity onPress={uploadImage}>
-        <Image source={userData.profileImgeUrl ? {uri: userData.profileImgeUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.clickImage}></Image>
+        <Image source={userData.profileImgeUrl ? {uri: userData.profileImgeUrl} : require('../../../../assets/images/ProfileImage.png')} style={Styles.clickImage}></Image>
         <Text style={Styles.text}>프로필 사진 변경하기</Text>
     </TouchableOpacity>
   )
