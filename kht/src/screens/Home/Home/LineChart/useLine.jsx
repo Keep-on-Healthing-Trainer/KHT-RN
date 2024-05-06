@@ -2,7 +2,8 @@ import { useMemo } from "react";
 
 const useLine = (arr) => {
     const lines = useMemo(() => {
-        if (!arr || arr.length === 0) return [];
+        if (arr.length === 0) return [];
+
         return arr.reduce((result, point, index) => {
             if (index === 0) return [];
             const previous = arr[index - 1];

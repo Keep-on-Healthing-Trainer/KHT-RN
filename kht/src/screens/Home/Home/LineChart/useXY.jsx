@@ -2,12 +2,12 @@ import { useMemo } from "react";
 
 const useXY = (data) => {
   const arr = useMemo(( ) => {
+    if (!data) return [];
+
     const maxCount = data.reduce((max, obj) => Math.max(max, obj.count), -Infinity);
     const itemCount = data.length;
     const maxLineHeight = 90;
     const maxLineWidth = 145;
-
-    if (!data) return [];
 
     const interval = maxLineWidth / (itemCount - 1 || 1);
 

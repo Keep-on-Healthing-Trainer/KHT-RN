@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { WithLocalSvg } from 'react-native-svg/css';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 
 import MainHeader from "../../../components/header/MainHeader";
-import Profile from "../../../assets/icons/Profile";
 import Chart from "./LineChart";
 
 import onChart from "../../../utils/fucntion/Chart";
@@ -35,17 +33,25 @@ const HomeTab = ({navigation}) => {
   });
 
   useEffect(() => {
-    onGetData();
+    onGetUserData();
+    onGetChartData();
   }, []);
 
-  const onGetData = async () => {
+  const onGetUserData = async () => {
     try {
       const user = await onUser();
-      const chart = await onChart();
       setUserData(user);
+    } catch (error) {
+      console.log("유저 정보 가져오기 오류");
+    }
+  }
+
+  const onGetChartData = async () => {
+    try {
+      const chart = await onChart();
       setData(chart);
     } catch (error) {
-      console.log("정보 가져오기 오류");
+      console.log("차트 정보 가져오기 오류");
     }
   }
 
@@ -55,7 +61,8 @@ const HomeTab = ({navigation}) => {
       <View style={Styles.topContainer}>
         <View style={Styles.profileMargin}></View>
         <View style={Styles.profileContainer}>
-          <TouchableOpacity style={Styles.editButton} onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}>
+          <TouchableOpacity style={Styles.editButton}
+          onPress={() => navigation.navigate("SelectTab", { screen: 'SelectTab' })}>
             <Text style={Styles.editButtonText}>편집</Text>
           </TouchableOpacity>
           <View style={Styles.nameContanier}>
@@ -63,11 +70,7 @@ const HomeTab = ({navigation}) => {
             <Text style={Styles.IdComment}>누적 윗몸말아올리기 횟수 : {data.totalCounts}</Text>
           </View>
         </View>
-        {userData.profileImageUrl ? (
-          <WithLocalSvg width={100} height={100} asset={userData.profileImageUrl} style={Styles.profile}></WithLocalSvg>
-        ) : (
-          <Profile style={Styles.profile}></Profile>
-        )}
+        <Image source={{uri: userData.profileImgeUrl}} style={Styles.profile}></Image>
       </View>
       <View style={Styles.dataContainer}>
         <Text style={Styles.textCount}>총 {data.totalCounts}회</Text>
