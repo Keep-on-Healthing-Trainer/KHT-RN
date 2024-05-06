@@ -20,7 +20,7 @@ const onRanking = async () => {
         }
     } catch (error) {
         if (error.response) {
-            if (error.response.status === 403) {
+            if (error.response.status === 404) {
               Alert.alert('유저를 찾을 수 없습니다.');
             } else {
               console.error(error);
