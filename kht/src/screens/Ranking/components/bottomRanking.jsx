@@ -14,7 +14,7 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const BottomRanking = (props) => {
-  const data = props.data;
+  const [ data, setData ] = useState();
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -25,13 +25,21 @@ const BottomRanking = (props) => {
     Roboto_900Black,
   });
 
+  useEffect(() => {
+    setData(props.data);
+  }, [props]);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data])
+
   return (
     <View style={Styles.rankingContainer}>
-      {data.map(({userName, totalCounts, profileImgeUrl}, index) => {
+      {data.map(({userName, totalCounts, profileImgUrl}, index) => {
         if(index < 3) return null
         return(
           <View style={Styles.rankingTableContainer}>
-            <Image source={profileImgeUrl ? undefined : require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
+            <Image source={profileImgUrl ? {uri: profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.rankingTableProfile}></Image>
             <Text style={Styles.rankingTableText}>{userName}</Text>
             <Text style={Styles.rankingTableText}>{totalCounts}회</Text>
           </View>
@@ -42,7 +50,7 @@ const BottomRanking = (props) => {
 }
 
 const Styles = StyleSheet.create({
-        rankingContainer: {
+      rankingContainer: {
         width: constants.width,
         height: constants.height/2.3,
         alignItems: 'center',

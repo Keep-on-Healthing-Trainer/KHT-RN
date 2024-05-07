@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 import constants from "../../../styles/constants";
@@ -14,34 +14,38 @@ import {
 } from '@expo-google-fonts/roboto';
 
 const TopRanking = (props) => {
-  const data = props.data;
+  const [ data, setData ] = useState();
 
-    let [fontsLoaded] = useFonts({
-        Roboto_100Thin,
-        Roboto_300Light,
-        Roboto_400Regular,
-        Roboto_500Medium,
-        Roboto_700Bold,
-        Roboto_900Black,
-      });
+  let [fontsLoaded] = useFonts({
+    Roboto_100Thin,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
+    Roboto_900Black,
+  });
+
+  useEffect(() => {
+    setData(props.data);
+  }, [props]);
 
   return (
       <View style={Styles.topRankContainer}>
         <View style={Styles.oneContainer}>
           <Text style={Styles.rankText}>2nd</Text>
-          <Image source={data[1].profileImgeUrl ? undefined : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+          <Image source={data[1].profileImgUrl ? {uri: data[1].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
           <Text style={Styles.countText}>{data[1].totalCounts}회</Text>
           <Text style={Styles.nameText}>{data[1].userName}</Text>
         </View>
         <View style={Styles.oneContainer}>
           <Text style={Styles.oneRankText}>1st</Text>
-          <Image source={data[0].profileImgeUrl ? undefined : require('../../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
+          <Image source={data[0].profileImgUrl ? {uri: data[0].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
           <Text style={Styles.countText}>{data[0].totalCounts}회</Text>
           <Text style={Styles.nameText}>{data[0].userName}</Text>
         </View>
         <View style={Styles.oneContainer}>
           <Text style={Styles.rankText}>3rd</Text>
-          <Image source={data[2].profileImgeUrl ? undefined :require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+          <Image source={data[2].profileImgUrl ? {uri: data[2].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
           <Text style={Styles.countText}>{data[2].totalCounts}회</Text>
           <Text style={Styles.nameText}>{data[2].userName}</Text>
         </View>

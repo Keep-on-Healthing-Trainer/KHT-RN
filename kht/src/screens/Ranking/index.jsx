@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 import constants from "../../styles/constants";
@@ -17,68 +17,35 @@ import MainHeader from "../../components/header/MainHeader";
 import TopRanking from "./components/topRanking";
 import BottomRanking from "./components/bottomRanking";
 
+import onUser from "../../utils/fucntion/User";
+import onRanking from "../../utils/fucntion/Ranking";
+
 const Ranking = ({navigation}) => {
-  const userData = {
-		"nickname" : "이름",
-		"userId" : "아이디",
-		"profileImgeUrl" : null,
-		"totalCounts" : 200,
-    "phoneNumber" : "01055558888"
+  const [ data, setData ]= useState(null);
+  const [ userData, setUserData ]= useState({});
+
+  useEffect(() => {
+    onGetUserData();
+    onGetRanking();
+  }, []);
+
+  const onGetUserData = async () => {
+    try {
+      const user = await onUser();
+      setUserData(user);
+    } catch (error) {
+      console.log("유저 정보 가져오기 오류");
+    }
   }
-  const data = {
-    "RankingResponse": [
-        {
-            "userName" : "이름",
-            "totalCounts" : "7000",
-            "profileImgeUrl" : null
-        },
-        {
-            "userName" : "이름",
-            "totalCounts" : "6000",
-            "profileImgeUrl" : null
-        },
-        {
-            "userName" : "이름",
-            "totalCounts" : "5000",
-            "profileImgeUrl" : null
-        }, 
-        {
-            "userName" : "이름",
-            "totalCounts" : "4000",
-            "profileImgeUrl" : null
-        }, 
-	      {
-            "userName" : "이름",
-            "totalCounts" : "4000",
-            "profileImgeUrl" : null
-        }, 
-        {
-            "userName" : "이름",
-            "totalCounts" : "3000",
-            "profileImgeUrl" : null
-        }, 
-        {
-            "userName" : "이름",
-            "totalCounts" : "2000",
-            "profileImgeUrl" : null
-        }, 
-        {
-            "userName" : "이름",
-            "totalCounts" : "1000",
-            "profileImgeUrl" : null
-        }, 
-        {
-            "userName" : "이름",
-            "totalCounts" : "500",
-            "profileImgeUrl" : null
-        }, 
-        {
-            "userName" : "이름",
-            "totalCounts" : "100",
-            "profileImgeUrl" : null
-        }
-    ]
-};
+
+  const onGetRanking = async () => {
+    try {
+      const rank = await onRanking();
+      setData(rank);
+    } catch (error) {
+      console.log("랭킹 정보 가져오기 오류");
+    }
+  }
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -92,12 +59,18 @@ const Ranking = ({navigation}) => {
   return (
     <View style={Styles.container}>
       <MainHeader />
-      <TopRanking data={data.RankingResponse} />
-      <BottomRanking data={data.RankingResponse} />
+      {data ? (
+        <View style={Styles.rankingContainer}>
+          <TopRanking data={data.RankingResponse} />
+          <BottomRanking data={data.RankingResponse} />
+        </View>
+      ) : (
+        <View style={Styles.rankingContainer}></View>
+      )}
       <View style={Styles.myRankingContainer}>
-        <Image source={userData.profileImgeUrl ? undefined : require('../../assets/images/ProfileImage.png')} style={Styles.myRankingProfile}></Image>
-        <Text style={Styles.myRankingText}>{userData.nickname}</Text>
-        <Text style={Styles.myRankingText}>{userData.totalCounts}</Text>
+        <Image source={userData.profileImgeUrl ? {uri: userData.profileImgeUrl} : require('../../assets/images/ProfileImage.png')} style={Styles.myRankingProfile}></Image>
+        <Text style={Styles.myRankingText}>{userData.name}</Text>
+        <Text style={Styles.myRankingText}>{userData.totalCounts}회</Text>
       </View>
     </View>
   )
@@ -110,6 +83,10 @@ const Styles = StyleSheet.create({
     width: constants.width,
     height: constants.height,
     justifyContent: 'space-between'
+  },
+  rankingContainer: {
+    width: constants.width,
+    height: constants.height/5 + constants.height/2.3
   },
   myRankingContainer: {
     width: constants.width,
