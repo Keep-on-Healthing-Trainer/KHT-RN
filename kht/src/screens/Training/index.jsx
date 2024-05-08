@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
 import { useIsFocused } from '@react-navigation/native';
-import { Camera } from 'expo-camera';
+import { CameraView, useCameraPermissions } from 'expo-camera';
 
 import constants from "../../styles/constants";
 import { color } from "../../styles/theme";
@@ -18,8 +18,8 @@ import {
 import MainHeader from "../../components/header/MainHeader";
 
 const Training = ({navigation}) => {
-  const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
+  const [permission, requestPermission] = useCameraPermissions();
   const isFocused = useIsFocused();
 
   let [fontsLoaded] = useFonts({
@@ -32,41 +32,47 @@ const Training = ({navigation}) => {
   });
 
   useEffect(() => {
-    (async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-    setScanned(false);
-  }, []);
-  
+    setScanned(true);
+  }, [])
+
   if (!isFocused) {
     return null;
   }
-  if (hasPermission === null) {
+
+  if (!permission) {
     return <View />;
   }
-  if (!hasPermission) {
-    return <Text>No access to camera</Text>;
+
+  if (!permission.granted) {
+    return (
+      <View style={Styles.container}>
+        <MainHeader></MainHeader>
+        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
+        <Button onPress={requestPermission} title="grant permission" />
+      </View>
+    );
   }
 
-  const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
+  const handleBarCodeScanned = () => {
+    setScanned(false);
     Alert.alert('QR코드 스캔에 성공했습니다.');
   };
 
   return (
     <View style={Styles.container}>
       <MainHeader></MainHeader>
-      <Camera
-        style={Styles.camera}
-        type={Camera.Constants.Type.back}
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+      <CameraView
+      style={Styles.camera} 
+      barcodeScannerSettings={{
+        barcodeTypes: ["qr"],
+      }} 
+      onBarcodeScanned={scanned ? handleBarCodeScanned : undefined}
       >
         <View style={Styles.mainContainer}>
           <View style={Styles.cameraContainer}></View>
           <Text style={Styles.traningTypeText}>KHT 기기 화면에 표시된{"\n"}QR을 스캔해주세요</Text>
         </View>
-      </Camera>
+      </CameraView>
     </View>
   )
 }
