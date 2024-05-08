@@ -36,7 +36,7 @@ const SignupTab = ({navigation}) => {
               try {
                 const signupState = await onSignup(signupData);
                 if (signupState) {
-                  navigation.navigate("ProfileTab", { screen: 'ProfileTab', name: signupData.userId });
+                  navigation.navigate("Login", { screen: 'Login' });
                 }
               } catch (error) {
                 console.log("회원가입 오류");
