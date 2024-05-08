@@ -20,7 +20,7 @@ import Button from "../../../components/Buttons/BorderBlueButton";
 
 const ProfileTab = ({navigation, route}) => {
   const [ imageUrl, setImageUrl ] = useState();
-  const name = route.params.name;
+  const userId = route.params.name;
 
   let [fontsLoaded] = useFonts({
     Roboto_100Thin,
@@ -33,7 +33,7 @@ const ProfileTab = ({navigation, route}) => {
 
   const onPressImage = async () => {
     try {
-      const imageStatus = await onImage(imageUrl, name);
+      const imageStatus = await onImage(imageUrl, userId);
       if (imageStatus) {
         navigation.navigate("Login", { screen: 'Login' });
       }

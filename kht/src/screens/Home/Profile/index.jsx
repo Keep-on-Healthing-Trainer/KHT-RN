@@ -17,6 +17,7 @@ import {
 } from '@expo-google-fonts/roboto';
 
 import onUser from "../../../utils/fucntion/User";
+import onImage from "../../../utils/fucntion/Image";
 
 const ProfileTab = ({navigation}) => {
   const [ imageUrl, setImageUrl ] = useState();
@@ -50,7 +51,7 @@ const ProfileTab = ({navigation}) => {
 
   const onPressImage = async () => {
     try {
-      const imageStatus = await onImage(imageUrl, userData.name);
+      const imageStatus = await onImage(imageUrl, userData.userId);
       if (imageStatus) {
         navigation.navigate("SelectTab", { screen: 'SelectTab' });
       }
