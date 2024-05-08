@@ -21,7 +21,7 @@ import onUser from "../../utils/fucntion/User";
 import onRanking from "../../utils/fucntion/Ranking";
 
 const Ranking = ({navigation}) => {
-  const [ data, setData ]= useState(null);
+  const [ data, setData ]= useState();
   const [ userData, setUserData ]= useState({});
 
   useEffect(() => {
@@ -61,8 +61,8 @@ const Ranking = ({navigation}) => {
       <MainHeader />
       {data ? (
         <View style={Styles.rankingContainer}>
-          <TopRanking data={data.RankingResponse} />
-          <BottomRanking data={data.RankingResponse} />
+          <TopRanking data={data} />
+          {/* <BottomRanking data={data} /> */}
         </View>
       ) : (
         <View style={Styles.rankingContainer}></View>

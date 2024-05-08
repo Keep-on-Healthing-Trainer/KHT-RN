@@ -29,10 +29,6 @@ const BottomRanking = (props) => {
     setData(props.data);
   }, [props]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data])
-
   return (
     <View style={Styles.rankingContainer}>
       {data.map(({userName, totalCounts, profileImgUrl}, index) => {

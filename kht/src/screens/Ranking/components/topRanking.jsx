@@ -31,24 +31,36 @@ const TopRanking = (props) => {
 
   return (
       <View style={Styles.topRankContainer}>
-        <View style={Styles.oneContainer}>
-          <Text style={Styles.rankText}>2nd</Text>
-          <Image source={data[1].profileImgUrl ? {uri: data[1].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
-          <Text style={Styles.countText}>{data[1].totalCounts}회</Text>
-          <Text style={Styles.nameText}>{data[1].userName}</Text>
-        </View>
-        <View style={Styles.oneContainer}>
-          <Text style={Styles.oneRankText}>1st</Text>
-          <Image source={data[0].profileImgUrl ? {uri: data[0].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
-          <Text style={Styles.countText}>{data[0].totalCounts}회</Text>
-          <Text style={Styles.nameText}>{data[0].userName}</Text>
-        </View>
-        <View style={Styles.oneContainer}>
-          <Text style={Styles.rankText}>3rd</Text>
-          <Image source={data[2].profileImgUrl ? {uri: data[2].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
-          <Text style={Styles.countText}>{data[2].totalCounts}회</Text>
-          <Text style={Styles.nameText}>{data[2].userName}</Text>
-        </View>
+        {data[1] ? (
+          <View style={Styles.oneContainer}>
+            <Text style={Styles.rankText}>2nd</Text>
+            <Image source={data.RankingResponse[1].profileImgUrl ? {uri: data.RankingResponse[1].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+            <Text style={Styles.countText}>{data.RankingResponse[1].totalCounts}회</Text>
+            <Text style={Styles.nameText}>{data.RankingResponse[1].userName}</Text>
+          </View>
+        ) : (
+          <View style={Styles.oneContainer}></View>
+        )}
+        {data[0] ? (
+          <View style={Styles.oneContainer}>
+            <Text style={Styles.oneRankText}>1st</Text>
+            <Image source={data.RankingResponse[0].profileImgUrl ? {uri: data.RankingResponse[0].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.oneProfile}></Image>
+            <Text style={Styles.countText}>{data.RankingResponse[0].totalCounts}회</Text>
+            <Text style={Styles.nameText}>{data.RankingResponse[0].userName}</Text>
+          </View>
+        ) : (
+          <View style={Styles.oneContainer}></View>
+        )}
+        {data[2] ? (
+          <View style={Styles.oneContainer}>
+            <Text style={Styles.rankText}>3rd</Text>
+            <Image source={data.RankingResponse[2].profileImgUrl ? {uri: data.RankingResponse[2].profileImgUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.anotherProfile}></Image>
+            <Text style={Styles.countText}>{data.RankingResponse[2].totalCounts}회</Text>
+            <Text style={Styles.nameText}>{data.RankingResponse[2].userName}</Text>
+          </View>
+        ) : (
+          <View style={Styles.oneContainer}></View>
+        )}
       </View>
   )
 }
