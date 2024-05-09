@@ -7,6 +7,8 @@ const onChart = async () => {
     const result = await SecureStore.getItemAsync('token')
     const token = result && JSON.parse(result);
 
+    //console.log(token);
+
     try {
         const response = await axios.get(`${API_KEY}/exercise/user?page=0&size=12`, {
             headers: {

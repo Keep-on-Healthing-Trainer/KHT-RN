@@ -4,8 +4,10 @@ import { Alert } from 'react-native';
 import * as SecureStore from "expo-secure-store";
 
 const onUser = async () => {
-    const result = await SecureStore.getItemAsync('token')
+    const result = await SecureStore.getItemAsync('token');
     const token = result && JSON.parse(result);
+
+    //console.log(token);
 
     try {
         const response = await axios.get(`${API_KEY}/user`, {
@@ -27,7 +29,7 @@ const onUser = async () => {
               Alert.alert('유저 정보 가져오기 오류입니다.');
             }
         } else {
-            Alert.alert('네트워크 오류입니다.');
+            Alert.alert('유저 조회 네트워크 오류입니다.');
         }
         return false;
     }

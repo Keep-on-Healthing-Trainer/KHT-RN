@@ -4,6 +4,8 @@ import { Alert } from "react-native";
 import * as SecureStore from "expo-secure-store";
 
 const onLogin = async ( data, state ) => {
+    console.log(data);
+
     try {
         const response = await axios.post(`${API_KEY}/user/login`, {
             userId: data.userId,
