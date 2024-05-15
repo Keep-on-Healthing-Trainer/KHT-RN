@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Alert } from "react-native";
 
 import BackPage from "../../../components/header/BackHeader";
 import Selection from "./components/selection";
@@ -48,7 +48,7 @@ const SelectTab = ({navigation}) => {
         <BackPage innerText="프로필 편집" onPress={() => navigation.navigate("HomeTab", { screen: 'HomeTab' })}></BackPage>
         <View style={Styles.profileContainer}>
             <Image source={userData.profileImgeUrl ? {uri: userData.profileImgeUrl} : require('../../../assets/images/ProfileImage.png')} style={Styles.profile}></Image>
-            <TouchableOpacity onPress={() => navigation.navigate("ProfileTab", { screen: 'ProfileTab' })}>
+            <TouchableOpacity onPress={() => Alert.alert('프로필 사진 기능은 아직 구현되지 않았습니다.')}>
                 <Text style={Styles.profileText}>프로필 사진 수정</Text>
             </TouchableOpacity>
         </View>
