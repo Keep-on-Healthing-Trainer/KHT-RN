@@ -21,13 +21,23 @@ import onUser from "../../utils/fucntion/User";
 import onRanking from "../../utils/fucntion/Ranking";
 
 const Ranking = ({navigation}) => {
-  const [ data, setData ]= useState();
-  const [ userData, setUserData ]= useState({});
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ data, setData ] = useState(null);
+  const [ userData, setUserData ]= useState(null);
 
   useEffect(() => {
+    setIsLoading(false);
     onGetUserData();
     onGetRanking();
   }, []);
+
+  useEffect(() => {
+    if(data !== null) {
+      setIsLoading(true);
+      console.log(userData);
+      console.log(data);
+    }
+  }, [data]);
 
   const onGetUserData = async () => {
     try {
@@ -59,18 +69,18 @@ const Ranking = ({navigation}) => {
   return (
     <View style={Styles.container}>
       <MainHeader />
-      {data ? (
-        <View style={Styles.rankingContainer}>
-          <TopRanking data={data} />
-          {/* <BottomRanking data={data} /> */}
-        </View>
+      {isLoading ? (
+          <View style={Styles.rankingContainer}>
+            <TopRanking data={data} />
+            <BottomRanking data={data} />
+          </View>
       ) : (
         <View style={Styles.rankingContainer}></View>
       )}
       <View style={Styles.myRankingContainer}>
-        <Image source={userData.profileImgeUrl ? {uri: userData.profileImgeUrl} : require('../../assets/images/ProfileImage.png')} style={Styles.myRankingProfile}></Image>
-        <Text style={Styles.myRankingText}>{userData.name}</Text>
-        <Text style={Styles.myRankingText}>{userData.totalCounts}회</Text>
+        <Image source={userData ? {uri: userData.profileImgeUrl} : require('../../assets/images/ProfileImage.png')} style={Styles.myRankingProfile}></Image>
+        <Text style={Styles.myRankingText}>{isLoading ? userData.name : undefined}</Text>
+        <Text style={Styles.myRankingText}>{isLoading ? userData.totalCounts : undefined}회</Text>
       </View>
     </View>
   )
