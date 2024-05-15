@@ -23,12 +23,14 @@ const onUser = async () => {
     } catch (error) {
         if (error.response) {
             if (error.response.status === 404) {
+              console.log('userdata : 유저를 찾을 수 없습니다');
               Alert.alert('유저를 찾을 수 없습니다.');
             } else {
-              console.error(error);
+                console.log('userdata : 유저 정보 가져오기 오류');
               Alert.alert('유저 정보 가져오기 오류입니다.');
             }
         } else {
+            console.log('userdata : 네트워크 오류');
             Alert.alert('유저 조회 네트워크 오류입니다.');
         }
         return false;

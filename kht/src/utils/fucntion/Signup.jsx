@@ -20,12 +20,14 @@ const onSignup = async ( data ) => {
     } catch (error) {
         if (error.response) {
             if (error.response.status === 409) {
+              console.log('signup : 아이디가 이미 존재함');
               Alert.alert('아이디가 이미 존재합니다.');
             } else {
-                console.error(error);
+              console.log('signup : 회원가입 오류');
               Alert.alert('회원가입 오류입니다.');
             }
         } else {
+            console.log('signup : 네트워크 오류');
             Alert.alert('네트워크 오류입니다.');
         }
         return false;

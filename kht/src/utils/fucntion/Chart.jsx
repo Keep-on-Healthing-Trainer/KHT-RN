@@ -23,12 +23,14 @@ const onChart = async () => {
     } catch (error) {
         if (error.response) {
             if (error.response.status === 403) {
+              console.log('chart : 유저를 찾을 수 없습니다');
               Alert.alert('유저를 찾을 수 없습니다.');
             } else {
-              console.error(error);
+              console.log('chart : 그래프 정보 가져오기 오류');
               Alert.alert('그래프 정보 가져오기 오류입니다.');
             }
         } else {
+            console.log('chart : 네트워크 오류');
             Alert.alert('네트워크 오류입니다.');
         }
         return false;
