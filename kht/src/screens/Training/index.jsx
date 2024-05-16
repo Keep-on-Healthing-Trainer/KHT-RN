@@ -16,8 +16,11 @@ import {
 } from '@expo-google-fonts/roboto';
 
 import MainHeader from "../../components/header/MainHeader";
+import onWeb from "../../utils/fucntion/WebSocket";
+import onUser from "../../utils/fucntion/User"
 
 const Training = ({navigation}) => {
+  const [ userData, setUserData ]= useState({});
   const [scanned, setScanned] = useState(false);
   const [permission, requestPermission] = useCameraPermissions();
   const isFocused = useIsFocused();
@@ -32,8 +35,18 @@ const Training = ({navigation}) => {
   });
 
   useEffect(() => {
+    onGetUserData();
     setScanned(true);
   }, [])
+
+  const onGetUserData = async () => {
+    try {
+      const user = await onUser();
+      setUserData(user);
+    } catch (error) {
+      console.log("유저 정보 가져오기 오류");
+    }
+  }
 
   if (!isFocused) {
     return null;
@@ -47,14 +60,16 @@ const Training = ({navigation}) => {
     return (
       <View style={Styles.container}>
         <MainHeader></MainHeader>
-        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
+        <Text style={{ textAlign: 'center' }}>카메라 권한을 허용해주세요</Text>
         <Button onPress={requestPermission} title="grant permission" />
       </View>
     );
   }
 
-  const handleBarCodeScanned = () => {
+  const handleBarCodeScanned = (data) => {
     setScanned(false);
+    const sessionId = (data.data.split('?')[1]).split('=')[1];
+    onWeb(sessionId, userData.id);
     Alert.alert('QR코드 스캔에 성공했습니다.');
   };
 
